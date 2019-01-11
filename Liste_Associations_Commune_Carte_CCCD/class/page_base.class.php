@@ -118,10 +118,13 @@ class page_base {
 		echo'
            <header>
 				
-				<img  class="img-responsive"  width="292" height="136" src="'.$this->path.'/image/logo.jpg" alt="logo" style="float:left;padding: 0 10px 10px 0;"/>
+				<img  class="img-responsive"  width="200" height="210" src="'.$this->path.'/image/logo.jpg" alt="logo" style="float:left;padding: 0 10px 10px 0;"/>
                 <h1>
-					Associations
+					Associations des différentes communes
 				</h1>
+                <h2>
+					Castelbriantaise et du secteur de Derval
+				</h2>
              </header>
 		';
 	}
@@ -129,6 +132,7 @@ class page_base {
 	
 	protected function affiche_menu() {
 		echo '
+                <hr>
 				<ul >
 					<li ><a   href="'.$this->path.'/Accueil" >Accueil</a></li>
 				</ul>';
@@ -189,7 +193,7 @@ class page_base {
 		
 		
 		?>
-			<!DOCCTYPE html>
+			<!DOCTYPE html>
 			<html lang='fr'>
 				<head>
 					<title><?php echo $this->titre; ?></title>

@@ -9,7 +9,7 @@ a {
 	color: #546E7B;
 }
 a:hover, a:focus {
-	color: #FF4C00;
+	color: #77858C;
 }
 strong {
 	color: #546E7B;
@@ -19,7 +19,7 @@ strong {
 
 /* Page */
 body {
-	padding: 10px 5px;
+	padding: 0px 170px;
 }
 #global {
 	max-width: 1000px; 
@@ -32,7 +32,8 @@ header {
 	padding: 20px 20px 20px 0;
 }
 header h1 {
-	margin: 0;
+	margin: 2%;
+	margin-left: 30%;
 }
 header h1 img {
 	float: left;
@@ -41,10 +42,15 @@ header h1 img {
 header .sous-titre {
 	margin: 4px 0 15px 0;
 }
+header h2	 {
+	margin: 2%;
+	margin-left: 40%;
+}
+
 .logo{
 float:left;
 max-width:30%;
-min-width:250px !important;
+min-width:280px !important;
 height:auto;
 display:block;
 margin: 0 10px 10px 10px;
@@ -88,17 +94,17 @@ height:100%;
 overflow:auto;
 
 }
-section a {
-	color: #332510;
-}
-section a:hover, section a:focus {
-	color: #6E5122;
-}
-section strong {
-	color: #181A12;
-}
+
 
 /* Menu de navigation */
+
+hr{
+  margin: 0;
+  height: 5px;
+  background-color: #008BD2;
+  border: none; /*on supprime le style par défaut*/
+}
+
 #menu_horizontal
 {
 	width: 100%;
