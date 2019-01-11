@@ -174,10 +174,9 @@ class page_base {
 		echo '
 		<!-- Footer -->
 			<footer>
-				<p>Site de travail Lycée CARCOUET 2018-2019 - servant de base à  l\'apprentissage PHP objet - jquery - Ajax  - Bootstrap</p>
-				<p id="copyright">
-				Site officiel de la &copy; 2019
-				<a href="http://cc-chateaubriant-derval.fr/">Communauté de Commune Châteaubriant - Derval</a> 
+				Site officiel de la 
+				<a href="http://cc-chateaubriant-derval.fr/">Communauté de Commune Châteaubriant - Derval</a>
+                &copy; 2019
 				</p>
             </footer>
 		';

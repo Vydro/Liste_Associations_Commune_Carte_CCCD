@@ -1,6 +1,6 @@
 RewriteEngine on
 
-RewriteBase /TPPHP-2018/
+RewriteBase /reposGit_Liste_Associations_Commune_Carte_CCCD/Liste_Associations_Commune_Carte_CCCD/
 
 RewriteCond %{REQUEST_FILENAME} !-l
 RewriteCond %{REQUEST_FILENAME} !-f
