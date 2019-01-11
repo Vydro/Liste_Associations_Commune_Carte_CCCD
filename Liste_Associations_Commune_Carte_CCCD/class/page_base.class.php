@@ -7,9 +7,9 @@ class page_base {
 	protected $js=array('jquery-3.3.1.min','bootstrap.min');
 	protected $css=array('perso','bootstrap.min','base', 'modele');
 	protected $page;
-	protected $metadescription="Bienvenue sur le site de promotion des sites touristiques de FRANCE";
-	protected $metakeyword=array('france','site touristique','tourisme','géolocalisation' );
-	protected $path='http://localhost/tpphp-2018';
+	protected $metadescription="Bienvenue sue le site de la CCCD, regroupant les associations présentent dans chaque commune";
+	protected $metakeyword=array('comcom','châteaubriant','association','commune' );
+	protected $path='http://localhost/reposGit_Liste_Associations_Commune_Carte_CCCD/Liste_Associations_Commune_Carte_CCCD';
 
 	public function __construct() {
 		$numargs = func_num_args();
@@ -119,12 +119,9 @@ class page_base {
            <header>
 				
 				<img  class="img-responsive"  width="292" height="136" src="'.$this->path.'/image/logo.jpg" alt="logo" style="float:left;padding: 0 10px 10px 0;"/>
-				<h1>
-					Sites de france
+                <h1>
+					Associations
 				</h1>
-				<h3>
-					<strong>Bienvenue</strong> sur le site de promotion des sites touristiques de FRANCE
-				</h3>
              </header>
 		';
 	}
@@ -133,7 +130,7 @@ class page_base {
 	protected function affiche_menu() {
 		echo '
 				<ul >
-					<li ><a   href="'.$this->path.'/Accueil" >Accueil </a></li>
+					<li ><a   href="'.$this->path.'/Accueil" >Accueil</a></li>
 				</ul>';
 	}
 	protected function affiche_menu_connexion() {
@@ -171,24 +168,6 @@ class page_base {
 		</div>';
 
 	}
-
-		/****************************************** remplissage affichage colonne ***************************/
-	public function rempli_right_sidebar() {
-		return'
-
-			
-				<article>
-					<h3>Association de la valorisation des sites touristiques de FRANCE</h3>
-										<p>12 rue des gones</br>
-										44000 NANTES</br>
-										Tel : 02.40.27.11.71</br>
-										Mail : avst44@gmai.com</p>
-										
-											<a  href="Contact" class="button">Contact</a>
-                </article>
-				';
-							
-	}
 	
 	/****************************************** Affichage du pied de la page ***************************/
 	private function affiche_footer() {
@@ -197,8 +176,8 @@ class page_base {
 			<footer>
 				<p>Site de travail Lycée CARCOUET 2018-2019 - servant de base à  l\'apprentissage PHP objet - jquery - Ajax  - Bootstrap</p>
 				<p id="copyright">
-				Mise en page PFR &copy; 2018
-				<a href="http://carcouet.paysdelaloire.e-lyco.fr/">Lycée CARCOUET NANTES</a> 
+				Site officiel de la &copy; 2019
+				<a href="http://cc-chateaubriant-derval.fr/">Communauté de Commune Châteaubriant - Derval</a> 
 				</p>
             </footer>
 		';

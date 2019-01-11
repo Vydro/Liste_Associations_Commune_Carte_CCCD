@@ -4,7 +4,7 @@ class mypdo extends PDO{
     private $PARAM_hote='localhost'; // le chemin vers le serveur
     private $PARAM_utilisateur='root'; // nom d'utilisateur pour se connecter
     private $PARAM_mot_passe=''; // mot de passe de l'utilisateur pour se connecter
-    private $PARAM_nom_bd='tourisme_france';
+    private $PARAM_nom_bd='associations_cccd';
     private $connexion;
     public function __construct() {
     	try {
@@ -30,35 +30,6 @@ class mypdo extends PDO{
     			}
     	}
     }
-    
-    public function liste_article($title)
-    {
-    
-		$requete='select a.h3,a.corps from article a,page p where a.page=p.id and p.title="'.$title.'";';
-
-    	$result=$this->connexion ->query($requete);
-    	if ($result)
-    
-    	{
-  		
-    			return ($result);
-   		}
-    	return null;
-    }
-    public function liste_dep()
-    {
-    
-    	$requete='SELECT departement_code,departement_nom,libel FROM departement,region,departement_region WHERE departement_code= code_dep and code_reg=code order by departement_code;';
-    
-    	$result=$this->connexion ->query($requete);
-    	if ($result)
-    
-    	{
-    
-    		return ($result);
-    	}
-    	return null;
-    }
-    
+        
 }
 ?>

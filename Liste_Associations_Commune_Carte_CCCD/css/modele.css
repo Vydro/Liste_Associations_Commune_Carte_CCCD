@@ -2,17 +2,17 @@
 
 /* Général */
 body {
-	color: #F0E39E;
-	background: #2C2F22;
+	color: #546E7B;
+	background: #FFFFFF;
 }
 a {
-	color: #FF6533;
+	color: #546E7B;
 }
 a:hover, a:focus {
 	color: #FF4C00;
 }
 strong {
-	color: #A1B55D;
+	color: #546E7B;
 }
 
 /* Button */
@@ -173,7 +173,7 @@ margin: 0 10px 10px 10px;
 /* Contenu principal */
 
 section {
-	color: #363B29;
+	color: #E9EDEF;
 	background: #cbd888;
 display:table-cell;	
 
@@ -212,7 +212,7 @@ section strong {
 #menu_horizontal ul a
 {
 	display:block;
-	background: #181A12;
+	background: #E9EDEF;
 	text-decoration:none;
 	font-weight:700;
 	font-size:12px;
@@ -222,7 +222,7 @@ section strong {
 }
 
 nav a {
-	color: #FF6533;
+	color: #546E7B
 }
 
 nav a:hover, nav a:focus,nav a.actif {
