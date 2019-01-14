@@ -7,11 +7,12 @@
 	$request = strtolower($_SERVER['REQUEST_URI']);
 	$params = explode('/', trim($request, '/'));
     $params = array_filter($params);
-	if (!isset($params[1]))
+    //var_dump($params);
+	if (!isset($params[2]))
 	{
-		$params[1]='accueil';
+		$params[2]='accueil';
 	}
-	switch ($params[0]) {
+	switch ($params[2]) {
 		case 'accueil' :
 			$site->titre='Accueil';
 			$site-> left_sidebar=$controleur->retourne_carte();

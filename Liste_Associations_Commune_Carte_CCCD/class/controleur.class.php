@@ -3,6 +3,7 @@ class controleur {
 
 	private $vpdo;
 	private $db;
+	protected $path='http://localhost/reposGit_Liste_Associations_Commune_Carte_CCCD/Liste_Associations_Commune_Carte_CCCD';
 	public function __construct() {
 		$this->vpdo = new mypdo ();
 		$this->db = $this->vpdo->connexion;
@@ -17,14 +18,17 @@ class controleur {
 			case 'db' :
 				{
 					
-					return $this->db;
+				    return $this->db; //932px × 692
 					break;
 				}
 		}
 	}
+	
 	public function retourne_carte()
 	{
-		return 'Toto';
+		return '
+           <h3>Carte</h3>
+           <object data="'.$this->path.'/image/carte.svg" type="image/svg+xml" id="cartesvg" width="70%" height="70%"></object>';
 	}
 
 	
