@@ -5,7 +5,7 @@
 	$site = new page_base();
 	$controleur=new controleur();
 	$request = strtolower($_SERVER['REQUEST_URI']);
-	$params = explode('reposGit_Liste_Associations_Commune_Carte_CCCD/', trim($request, '/'));
+	$params = explode('/', trim($request, '/'));
     $params = array_filter($params);
 	if (!isset($params[1]))
 	{
@@ -14,7 +14,7 @@
 	switch ($params[0]) {
 		case 'accueil' :
 			$site->titre='Accueil';
-			$site-> left_sidebar=$controleur->retourne_article($site->titre);
+			$site-> left_sidebar=$controleur->retourne_carte();
 			$site->affiche();
 			break;
 		case 'connexion' :

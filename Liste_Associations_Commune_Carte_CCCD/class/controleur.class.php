@@ -22,7 +22,7 @@ class controleur {
 				}
 		}
 	}
-	public function retourne_carte($title)
+	public function retourne_carte()
 	{
 		return 'Toto';
 	}
