@@ -7,8 +7,8 @@ class page_base {
 	protected $js=array('jquery-3.3.1.min','bootstrap.min');
 	protected $css=array('perso','bootstrap.min','base', 'modele');
 	protected $page;
-	protected $metadescription="Bienvenue sue le site de la CCCD, regroupant les associations présentent dans chaque commune";
-	protected $metakeyword=array('comcom','châteaubriant','association','commune' );
+	protected $metadescription="Bienvenue sur le site de la CCCD, regroupant les associations présentent dans chaque commune";
+	protected $metakeyword=array('comcom','chateaubriant','derval','association','commune');
 	protected $path='http://localhost/reposGit_Liste_Associations_Commune_Carte_CCCD/Liste_Associations_Commune_Carte_CCCD';
 
 	public function __construct() {
@@ -117,13 +117,12 @@ class page_base {
 	protected function affiche_entete() {
 		echo'
            <header>
-				
 				<img  class="img-responsive"  width="200" height="210" src="'.$this->path.'/image/logo.jpg" alt="logo" style="float:left;padding: 0 10px 10px 0;"/>
                 <h1>
 					Associations des différentes communes
 				</h1>
                 <h2>
-					Castelbriantaise et du secteur de Derval
+					Châteaubriant - Derval
 				</h2>
              </header>
 		';

@@ -22,21 +22,9 @@ class controleur {
 				}
 		}
 	}
-	public function retourne_article($title)
+	public function retourne_carte($title)
 	{
-		
-		$retour='<section>';
-		$result = $this->vpdo->liste_article($title);
-		if ($result != false) {
-			while ( $row = $result->fetch ( PDO::FETCH_OBJ ) )
-			// parcourir chaque ligne sélectionnée
-			{
-		
-				$retour = $retour . '<article><h3>'.$row->h3.'</h3><p>'.$row->corps.'</p></article>';
-			}
-		$retour = $retour .'</section>';
-		return $retour;
-		}
+		return 'Toto';
 	}
 
 	
