@@ -30,6 +30,34 @@ class mypdo extends PDO{
     			}
     	}
     }
-        
+    
+    public function liste_associations($nomCommune)
+    {
+        $requete='
+            select intitule, adresse, tel, siteInternet, descriptif, libelle as nomCategorie, nomComm, civilite, nom, prenom
+            from association a, categorie ct, commune cm, president p
+            where a.idCategorie=ct.idCategorie
+            and a.idCommune=cm.idCommune
+            and a.idPresident=p.idPresident
+            and cm.nomComm ="'.$nomCommune.'"
+            order by nomCategorie';       
+        $result=$this->connexion ->query($requete);
+        if ($result)
+        {
+            return ($result);
+        }
+    }
+    
+    public function liste_communes()
+    {
+        $requete='
+            select nomComm
+            from commune';
+        $result=$this->connexion ->query($requete);
+        if ($result)
+        {
+            return ($result);
+        }
+    }
 }
 ?>
