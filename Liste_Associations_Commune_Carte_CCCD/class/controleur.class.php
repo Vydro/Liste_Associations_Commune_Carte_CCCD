@@ -18,7 +18,7 @@ class controleur {
 			case 'db' :
 				{
 					
-				    return $this->db; //932px × 692
+				    return $this->db;
 					break;
 				}
 		}
@@ -27,8 +27,40 @@ class controleur {
 	public function retourne_carte()
 	{
 		return '
-           <h3>Carte</h3>
-           <object data="'.$this->path.'/image/carte.svg" type="image/svg+xml" id="cartesvg" width="70%" height="70%"></object>';
+            <h3>Carte des communes composant la CCCD</h3>
+            <br>
+            <object data="'.$this->path.'/image/carte.svg" type="image/svg+xml" id="cartesvg" width="68%"></object>';
+	}
+	
+	public function infos_associations($nomCommune)
+	{
+	    $retour='<section>';
+	    $result = $this->vpdo->liste_associations($nomCommune);
+	    if ($result != false) {
+	        while ( $row = $result->fetch ( PDO::FETCH_OBJ ) )
+	        // parcourir chaque ligne sélectionnée
+	        {
+	            
+	            $retour = $retour . '<article><h3>'.$row->intitule.'</h3></article>';
+	        }
+	        $retour = $retour .'</section>';
+	        return $retour;
+	    }
+	}
+	
+	public function array_commune()
+	{
+	    $retour = array();
+	    $result = $this->vpdo->liste_communes();
+	    if ($result != false) {
+	        while ( $row = $result->fetch ( PDO::FETCH_OBJ ) )
+	        // parcourir chaque ligne sélectionnée
+	        {
+	            
+	            $retour[]= $row->nomComm;
+	        }
+	        return $retour;
+	    }
 	}
 
 	
