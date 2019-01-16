@@ -200,6 +200,19 @@ z-index: 999;
 	display:block;
 }
 
+/* Carte */
+
+.st3 {
+    font-size: 14;
+}
+.st2 {
+    fill: #FFFFFF;
+    cursor: pointer;
+}
+.st1 {
+    font-family: 'poppinsmedium';
+}
+
 
 /* Contenu */
 
