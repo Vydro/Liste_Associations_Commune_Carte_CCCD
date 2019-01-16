@@ -29,7 +29,7 @@ class controleur {
 		return '
             <h3>Carte des communes composant la CCCD</h3>
             <br>
-            <object data="'.$this->path.'/image/carte.svg" type="image/svg+xml" id="cartesvg" width="68%"></object>';
+            <object data="'.$this->path.'/image/carte.svg" type="image/svg+xml" id="cartesvg" width="65%"></object>';
 	}
 	
 	public function infos_associations($nomCommune)
