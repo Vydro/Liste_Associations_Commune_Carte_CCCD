@@ -4,7 +4,7 @@ class mypdo extends PDO{
     private $PARAM_hote='localhost'; // le chemin vers le serveur
     private $PARAM_utilisateur='root'; // nom d'utilisateur pour se connecter
     private $PARAM_mot_passe=''; // mot de passe de l'utilisateur pour se connecter
-    private $PARAM_nom_bd='associations_cccd'; // nom de la base de donnée ustilisée
+    private $PARAM_nom_bd='association_cccd'; // nom de la base de donnée ustilisée
     private $connexion;
     public function __construct() {
     	try {
