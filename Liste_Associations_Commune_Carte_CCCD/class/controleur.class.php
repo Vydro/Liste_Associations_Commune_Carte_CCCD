@@ -3,7 +3,7 @@ class controleur {
 
 	private $vpdo;
 	private $db;
-	protected $path='http://localhost/reposGit_Liste_Associations_Commune_Carte_CCCD/Liste_Associations_Commune_Carte_CCCD';
+	protected $path='http://localhost/reposGitCCCD/Liste_Associations_Commune_Carte_CCCD';
 	public function __construct() {
 		$this->vpdo = new mypdo ();
 		$this->db = $this->vpdo->connexion;

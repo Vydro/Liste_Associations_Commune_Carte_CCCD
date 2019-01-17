@@ -9,7 +9,7 @@ class page_base {
 	protected $page;
 	protected $metadescription="Bienvenue sur le site de la CCCD, regroupant les associations présentent dans chaque commune";
 	protected $metakeyword=array('comcom','chateaubriant','derval','association','commune');
-	protected $path='http://localhost/reposGit_Liste_Associations_Commune_Carte_CCCD/Liste_Associations_Commune_Carte_CCCD';
+	protected $path='http://localhost/reposGitCCCD/Liste_Associations_Commune_Carte_CCCD';
 
 	public function __construct() {
 		$numargs = func_num_args();
