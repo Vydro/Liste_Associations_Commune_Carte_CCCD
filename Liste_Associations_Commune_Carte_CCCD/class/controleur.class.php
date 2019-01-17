@@ -34,14 +34,19 @@ class controleur {
 	
 	public function infos_associations($nomCommune)
 	{
-	    $retour='<section>';
 	    $result = $this->vpdo->liste_associations($nomCommune);
 	    if ($result != false) {
+	        $categorie = $result->fetch( PDO::FETCH_OBJ )->nomCategorie;
+	        $retour = ' <h3>Associations de la commune de'. $result->fetch( PDO::FETCH_OBJ )->nomReelComm.'<h3>';
+	        $retour = $retour . '<button class="accordion">'.$categorie.'</button><div class="panel">';
 	        while ( $row = $result->fetch ( PDO::FETCH_OBJ ) )
 	        // parcourir chaque ligne sélectionnée
 	        {
-	            
-	            $retour = $retour . '<article><h3>'.$row->intitule.'</h3></article>';
+	            if($categorie != $row->nomCategorie){
+	                $categorie = $row->nomCategorie;
+	                $retour = $retour .'</div><button class="accordion">'.$categorie.'</button></button><div class="panel">';
+	            }
+	            $retour = $retour . '<h3>'.$row->intitule.'</h3>';
 	        }
 	        $retour = $retour .'</section>';
 	        return $retour;

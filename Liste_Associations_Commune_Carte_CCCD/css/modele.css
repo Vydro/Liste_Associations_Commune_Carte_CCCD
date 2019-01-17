@@ -84,26 +84,41 @@ margin: 0 10px 10px 10px;
 }
 /* Contenu principal */
 
+	/* association */
+	
 section {
 	color: #E9EDEF;
-	background: #cbd888;
-display:table-cell;	
-
-
-height:100%;
-overflow:auto;
+	background: #FFFFFF;
+	display:table-cell;	
+	height:100%;
+	overflow:auto;
 
 }
-section a {
-	color: #332510;
-}
-section a:hover, section a:focus {
-	color: #6E5122;
-}
-section strong {
-	color: #181A12;
+	/* accordion */
+	
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
 }
 
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
 /* Menu de navigation */
 
 hr{
