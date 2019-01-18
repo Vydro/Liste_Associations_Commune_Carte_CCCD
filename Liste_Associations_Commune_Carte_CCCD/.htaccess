@@ -1,6 +1,6 @@
 RewriteEngine on
 
-RewriteBase /reposGit_Liste_Associations_Commune_Carte_CCCD/Liste_Associations_Commune_Carte_CCCD/
+RewriteBase /reposGitCCCD/Liste_Associations_Commune_Carte_CCCD/
 
 RewriteCond %{REQUEST_FILENAME} !-l
 RewriteCond %{REQUEST_FILENAME} !-f
