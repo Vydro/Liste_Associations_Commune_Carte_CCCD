@@ -23,6 +23,7 @@ switch ($params[2]) {
                     {
                         $site->titre = $params[4];
                         $site->js = 'app.min';
+                        $site->js = 'accordion';
                         $site->left_sidebar = $controleur->retourne_carte();
                         $site->left_sidebar = $controleur->infos_associations($params[4]);
                         $site->affiche();
