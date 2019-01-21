@@ -18,19 +18,17 @@ switch ($params[2]) {
             switch ($params[3]) 
             {
                 case 'commune':
-                    if (isset($params[4]) && in_array($params[4], $controleur->array_commune($params[4])) 
-                                && $controleur->infos_associations($params[4]))
+                    if (isset($params[4]) && in_array($params[4], $controleur->array_commune($params[4])))
                     {
                         $site->titre = $params[4];
                         $site->js = 'app.min';
-                        $site->js = 'accordion';
                         $site->left_sidebar = $controleur->retourne_carte();
                         $site->left_sidebar = $controleur->infos_associations($params[4]);
                         $site->affiche();
                     }
                     else{
                         $site->titre = 'Accueil';
-                        $site->left_sidebar = '<br>*Il n\'y a pas d\'associations pour cette commune</br>';
+                        $site->left_sidebar = '<img src="' . $site->path . '/image/erreur-404.png" alt="Erreur de liens">';
                         $site->affiche();
                     }
                     break;
@@ -40,7 +38,7 @@ switch ($params[2]) {
                     $site->affiche();
                     break;
             }
-        } 
+        }
         else 
         {
             $site->titre = 'Accueil';
