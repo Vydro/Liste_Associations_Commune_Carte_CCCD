@@ -4,7 +4,7 @@ class mypdo extends PDO{
     private $PARAM_hote='localhost'; // le chemin vers le serveur
     private $PARAM_utilisateur='root'; // nom d'utilisateur pour se connecter
     private $PARAM_mot_passe=''; // mot de passe de l'utilisateur pour se connecter
-    private $PARAM_nom_bd='association_cccd'; // nom de la base de donn�e ustilis�e
+    private $PARAM_nom_bd='association_cccd'; // nom de la base de donnée ustilisée
     private $connexion;
     public function __construct() {
     	try {
@@ -16,7 +16,7 @@ class mypdo extends PDO{
     	{
     		echo 'hote: '.$this->PARAM_hote.' '.$_SERVER['DOCUMENT_ROOT'].'<br />';
     		echo 'Erreur : '.$e->getMessage().'<br />';
-    		echo 'N° : '.$e->getCode();
+    		echo 'NÂ° : '.$e->getCode();
     		$this->connexion=false;
     		//echo '<script>alert ("pbs acces bdd");</script>)';
     	}
