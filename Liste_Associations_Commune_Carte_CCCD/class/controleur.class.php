@@ -36,20 +36,38 @@ class controleur {
 	{
 	    $result = $this->vpdo->liste_associations($nomCommune);
 	    if ($result != false) {
-	        $categorie = $result->fetch( PDO::FETCH_OBJ )->nomCategorie;
-	        $retour = ' <h3>Associations de la commune de'. $result->fetch( PDO::FETCH_OBJ )->nomReelComm.'<h3>';
-	        $retour = $retour . '<button class="accordion">'.$categorie.'</button><div class="panel">';
-	        while ( $row = $result->fetch ( PDO::FETCH_OBJ ) )
-	        // parcourir chaque ligne sélectionnée
+	        $row = $result->fetch ( PDO::FETCH_OBJ );
+	        if($row != NULL)
 	        {
-	            if($categorie != $row->nomCategorie){
-	                $categorie = $row->nomCategorie;
-	                $retour = $retour .'</div><button class="accordion">'.$categorie.'</button></button><div class="panel">';
+	            $retour = '<h3>Associations de la commune de '. $row->nomReelComm.'</h3>';
+	            $retour = $retour . '<hr class="hracc"><button class="accordion">'.$row->nomCategorie.'</button><div class="panel">';
+	            $cat = $row->nomCategorie;
+	            $result->execute();
+	            while ( $row = $result->fetch ( PDO::FETCH_OBJ )) // parcourir chaque ligne sï¿½lectionnï¿½e
+	            {
+	                if($cat != $row->nomCategorie)//nouveau accordion si on change de catÃ©gorie d'assoc
+	                {
+	                    $cat = $row->nomCategorie;
+	                    $retour = $retour .'</div><hr class="hracc"><button class="accordion">'.$row->nomCategorie.'</button><div class="panel">';
+	                }
+	                $retour = $retour . '<p>'.$row->intitule.'</p>';
 	            }
-	            $retour = $retour . '<h3>'.$row->intitule.'</h3>';
+	            return $retour = $retour . '</div>
+                <script>
+                var acc= document.getElementsByClassName("accordion");
+                var i;
+                for (i = 0; i < acc.length; i++) {
+                    acc[i].onclick = function(){
+                    this.classList.toggle("active");
+                    this.nextElementSibling.classList.toggle("show");
+                    }
+                }
+                </script>';
 	        }
-	        $retour = $retour .'</section>';
-	        return $retour;
+	        else
+	        {
+	            return '<h3>pas d\'association</h3>';
+	        }
 	    }
 	}
 	
@@ -59,7 +77,7 @@ class controleur {
 	    $result = $this->vpdo->liste_communes();
 	    if ($result != false) {
 	        while ( $row = $result->fetch ( PDO::FETCH_OBJ ) )
-	        // parcourir chaque ligne sélectionnée
+	        // parcourir chaque ligne sï¿½lectionnï¿½e
 	        {
 	            
 	            $retour[]= $row->nomComm;
