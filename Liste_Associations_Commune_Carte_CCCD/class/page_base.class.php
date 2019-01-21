@@ -13,7 +13,7 @@ class page_base {
 
 	public function __construct() {
 		$numargs = func_num_args();
-		$arg_list = func_get_args();
+		//$arg_list = func_get_args();
         if ($numargs == 1) {
 			$this->titre=$numargs[0];
 		}
@@ -131,7 +131,7 @@ class page_base {
 	
 	protected function affiche_menu() {
 		echo '
-                <hr>
+                <hr class="hr">
 				<ul >
 					<li ><a   href="'.$this->path.'/Accueil" >Accueil</a></li>
 				</ul>';
