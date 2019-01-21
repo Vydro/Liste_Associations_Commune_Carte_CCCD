@@ -89,12 +89,12 @@
 		402.007,370.311 400.167,344.143 398.328,342.305 394.937,346.264 392.673,346.264 392.673,337.212 388.714,318.263
 		380.793,322.223 326.116,322.598 310.279,300.722 301.228,299.212 299.721,304.493 260.125,380.681 276.403,399.33
 		283.882,392.748 298.209,395.012 325.74,404.821 343.461,408.215 	" onclick="parent.app.mapLinks('saint-vincent-des-landes')"/>
-	<polygon id="saint-aubin-des-chateau" class="st0" points="301.228,299.21 310.277,300.718 326.116,322.598 380.793,322.219
+	<polygon id="saint-aubin-des-chateaux" class="st0" points="301.228,299.21 310.277,300.718 326.116,322.598 380.793,322.219
 		388.713,318.257 410.493,306.096 421.803,306.096 421.521,311.752 425.48,312.885 440.472,297.891 455.18,298.174 461.399,301.569
 		465.641,301.569 467.903,295.912 471.297,295.627 477.805,302.7 480.488,301.569 480.488,290.959 461.499,261.115 418.883,253.949
 		420.109,215.29 411.337,224.061 407.099,220.1 407.099,215.575 392.107,215.575 390.41,199.448 344.876,171.725 315.369,162.605
 		321.591,208.668 330.266,218.286 324.609,238.087 318.007,236.199 299.721,254.305 305.378,270.901 300.473,278.631
-		305.563,286.008 298.208,293.084 	" onclick="parent.app.mapLinks('saint-aubin-des-chateau')"/>
+		305.563,286.008 298.208,293.084 	" onclick="parent.app.mapLinks('saint-aubin-des-chateaux')"/>
 	<polygon id="lusanger" class="st0" points="260.122,380.681 299.718,304.493 301.226,299.212 298.21,293.083 305.565,286.01
 		300.473,278.632 239.95,249.968 222.602,251.1 199.032,269.958 159.627,272.812 155.286,285.442 196.395,362.95 	" onclick="parent.app.mapLinks('lusanger')"/>
 	<path id="jans" class="st0" d="M251.826,430.09v-6.034l17.345,0.753l1.511-6.406l-11.313-9.813l0.752-7.162l14.33-0.382
@@ -102,10 +102,10 @@
 		c0,0-3.77,2.643-3.019,5.657c0.756,3.019,6.037,6.038,6.037,6.038h7.92l4.526,3.395l8.294-4.904c0,0,9.806-3.017,15.083-0.756
 		c5.28,2.266,7.542,2.266,7.542,2.266l9.05-9.807l18.857-1.889l6.407,9.43H216l3.018-6.41l10.938,8.297l8.294-5.658h16.214
 		l6.413-17.723L251.826,430.09z" onclick="parent.app.mapLinks('jans')"/>
-	<path id="marsac-sur-daron" class="st0" d="M117.202,421.791l-0.756,10.939l6.414,3.014v16.223c0,0-3.771,2.641-3.021,5.657
+	<path id="marsac-sur-don" class="st0" d="M117.202,421.791l-0.756,10.939l6.414,3.014v16.223c0,0-3.771,2.641-3.021,5.657
 		c0.756,3.014,6.036,6.032,6.036,6.032l-3.773,3.586l6.223,7.354l0.188,21.498l-15.461,14.709h-8.485l-5.276,3.018l-12.259,0.754
 		l-21.87,12.447l-28.474-0.189l-19.041-14.33L2,506.846l19.042-66.193l28.282-2.645l11.878,0.756l11.313,17.539l12.445,0.756
-		l9.426-18.295l-2.64-6.787l9.052-10.186H117.202z" onclick="parent.app.mapLinks('marsac-sur-daron')"/>
+		l9.426-18.295l-2.64-6.787l9.052-10.186H117.202z" onclick="parent.app.mapLinks('marsac-sur-don')"/>
 	<polygon id="derval" class="st0" points="40.652,262.627 31.976,253.199 26.51,260.738 30.279,272.62 50.078,286.389
 		61.389,279.976 65.916,292.045 56.488,297.703 55.358,303.737 39.143,325.991 32.355,328.255 30.846,348.997 28.207,358.05
 		32.731,368.988 31.602,386.717 30.846,392.376 37.256,400.295 36.126,419.531 48.57,426.32 49.326,438.01 61.205,438.765
@@ -126,8 +126,8 @@
 		213.739,115.532 222.792,120.813 	" onclick="parent.app.mapLinks('ruffigne')"/>
 </g>
 <text transform="matrix(0.9999 0 0 1 69.6621 352.8721)" class="st1 st2 st3" onclick="parent.app.mapLinks('derval')">DERVAL</text>
-<text transform="matrix(0.9999 0 0 1 37.5771 479.668)" class="st1 st2 st3" onclick="parent.app.mapLinks('marsac-sur-daron')">Marsac-</text>
-<text transform="matrix(0.9999 0 0 1 37.1152 496.0488)" class="st1 st2 st3" onclick="parent.app.mapLinks('marsac-sur-daron')">sur-Don</text>
+<text transform="matrix(0.9999 0 0 1 37.5771 479.668)" class="st1 st2 st3" onclick="parent.app.mapLinks('marsac-sur-don')">Marsac-</text>
+<text transform="matrix(0.9999 0 0 1 37.1152 496.0488)" class="st1 st2 st3" onclick="parent.app.mapLinks('marsac-sur-don')">sur-Don</text>
 <text transform="matrix(0.9999 0 0 1 428.3926 246.001)" class="st1 st2 st3" onclick="parent.app.mapLinks('chateaubriant')">CHÂTEAUBRIANT</text>
 <text transform="matrix(0.9999 0 0 1 564.9912 358.584)" class="st1 st2 st3" onclick="parent.app.mapLinks('erbray')">Erbray</text>
 <text transform="matrix(0.9999 0 0 1 482.4268 82.8447)" class="st1 st2 st3" onclick="parent.app.mapLinks('ferce')">Fercé</text>
@@ -153,8 +153,8 @@
 <text transform="matrix(0.9999 0 0 1 180.8252 208.7852)" class="st1 st2 st3" onclick="parent.app.mapLinks('sion-les-mines')">Sion-les-Mines</text>
 <text transform="matrix(0.9999 0 0 1 439.5918 142.4053)" class="st1 st2 st3" onclick="parent.app.mapLinks('rouge')">Rougé</text>
 <text transform="matrix(0.9999 0 0 1 275.7646 131.7783)" class="st1 st2 st3" onclick="parent.app.mapLinks('ruffigne')">Rufﬁgné</text>
-<text transform="matrix(0.9999 0 0 1 324.0742 265.9385)" class="st1 st2 st3" onclick="parent.app.mapLinks('saint-aubin-des-chateau')">Saint-Aubin-</text>
-<text transform="matrix(0.9999 0 0 1 319.8608 282.3198)" class="st1 st2 st3" onclick="parent.app.mapLinks('saint-aubin-des-chateau')">des-Châteaux</text>
+<text transform="matrix(0.9999 0 0 1 324.0742 265.9385)" class="st1 st2 st3" onclick="parent.app.mapLinks('saint-aubin-des-chateaux')">Saint-Aubin-</text>
+<text transform="matrix(0.9999 0 0 1 319.8608 282.3198)" class="st1 st2 st3" onclick="parent.app.mapLinks('saint-aubin-des-chateaux')">des-Châteaux</text>
 <text transform="matrix(0.9999 0 0 1 684.7773 369.7861)" class="st1 st2 st3" onclick="parent.app.mapLinks('saint-julien-de-vouvantes')">Saint-</text>
 <text transform="matrix(0.9999 0 0 1 669.7715 386.168)" class="st1 st2 st3" onclick="parent.app.mapLinks('saint-julien-de-vouvantes')">Julien-de-</text>
 <text transform="matrix(0.9999 0 0 1 667.9805 402.5488)" class="st1 st2 st3" onclick="parent.app.mapLinks('saint-julien-de-vouvantes')">Vouvantes</text>
