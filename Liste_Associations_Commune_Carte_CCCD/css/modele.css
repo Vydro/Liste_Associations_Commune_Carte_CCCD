@@ -85,7 +85,6 @@ margin: 0 10px 10px 10px;
 /* Contenu principal */
 
 	/* association */
-	
 section {
 	color: #E9EDEF;
 	background: #FFFFFF;
@@ -97,8 +96,8 @@ section {
 	/* accordion */
 	
 .accordion {
-  background-color: #eee;
-  color: #444;
+  background-color: #E9EDEF;
+  color: #546E7B;
   cursor: pointer;
   padding: 18px;
   width: 100%;
@@ -106,27 +105,54 @@ section {
   text-align: left;
   outline: none;
   font-size: 15px;
-  transition: 0.4s;
+  transition: 0.7s;
 }
 
-.active, .accordion:hover {
-  background-color: #ccc; 
+.active, .accordion:hover{
+  background-color: #546E7B;
+  color: #E9EDEF;
 }
 
 .panel {
-  padding: 0 18px;
-  display: none;
-  background-color: white;
-  overflow: hidden;
+    padding: 0 18px;
+    display: none;
+    background-color: white;
 }
-/* Menu de navigation */
 
-hr{
+.panel.show {
+    display: block !important;
+}
+
+.accordion:after{
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #546E7B;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+  color: #E9EDEF;
+}
+
+/* class hr */
+
+.hr{
   margin: 0;
   height: 5px;
   background-color: #008BD2;
   border: none; /*on supprime le style par défaut*/
 }
+
+.hracc{
+  margin: 0;
+  height: 2px;
+  background-color: #008BD2;
+  border: none; /*on supprime le style par défaut*/
+}
+
+/* Menu de navigation */
 
 #menu_horizontal
 {
@@ -158,6 +184,7 @@ hr{
 
 nav a {
 	color: #546E7B;
+	transition: 0.7s;
 }
 
 nav a:hover, nav a:focus,nav a.actif {
@@ -188,7 +215,7 @@ nav a:hover, nav a:focus,nav a.actif {
 	position:absolute;
 	top:100%;
 	left:0;
-z-index: 999;
+	z-index: 999;
 	padding:0;
 }
 
