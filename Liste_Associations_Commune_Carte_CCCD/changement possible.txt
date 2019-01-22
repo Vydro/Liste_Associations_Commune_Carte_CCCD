@@ -1,0 +1,18 @@
+
+page_base
+    -> paramètres bdd / path
+
+controleur
+    -> paramètres path
+
+index
+    -> $parms[?] 
+selon la taille du liens dans le répertoire
+ici reposGitCCCD/nomprojet/accueil
+$params[0] = "reposGitCCCD"
+
+.htaccess (fichier présent dans le dossier principal du site)
+   -> chemin
+
+mypdo / controleur
+    -> requête / résultat affiché
