@@ -5,12 +5,13 @@ body {
 	color: #546E7B;
 	background: #FFFFFF;
 }
-a {
-	color: #546E7B;
-}
-a:hover, a:focus {
-	color: #77858C;
-}
+a {color: #546E7B;}
+a:hover, a:focus {color: #77858C;}
+
+.b{color :#3a3a3a;}
+.b:hover, b:focus{color: #008BD2;}
+
+
 strong {
 	color: #546E7B;
 }
@@ -84,15 +85,6 @@ margin: 0 10px 10px 10px;
 }
 /* Contenu principal */
 
-	/* association */
-section {
-	color: #E9EDEF;
-	background: #FFFFFF;
-	display:table-cell;	
-	height:100%;
-	overflow:auto;
-
-}
 	/* accordion */
 	
 .accordion {
