@@ -34,7 +34,7 @@ class mypdo extends PDO{
     public function liste_associations($nomCommune)
     {
         $requete='
-            select intitule, adresse, tel, siteInternet, descriptif, nomCategorie, nomComm, nomReelComm, civilite, nom, prenom
+            select intitule, adresse, tel, siteInternet, descriptif, nomCategorie, nomComm, nomReelComm, cp, civilite, nom, prenom
             from association a, categorie ct, commune cm, president p
             where a.idCategorie=ct.idCategorie
             and a.idCommune=cm.idCommune
