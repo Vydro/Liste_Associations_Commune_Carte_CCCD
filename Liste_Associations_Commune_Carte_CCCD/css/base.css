@@ -17,7 +17,7 @@ body {
 }
 
 /* Titres */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3{
 	margin: 1em 0 .5em 0; 
 }
 h1, h2, h3{
@@ -32,7 +32,32 @@ h3 {
 	font-size: 2em;
 	color: #008BD2;
 }
-h4 {font-size: 1em;}
+/* Divers attributs de texte */
+
+err{
+	margin: 1em 0 .5em 0;
+	font-family: "HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-weight: normal;
+	font-size: 1em;
+	color: red;
+}
+at, atstrong, atcivil{
+	font-family: "HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-weight: normal;
+	color: black;
+}
+
+at{
+	font-size: 1em;
+	color :#3a3a3a;
+}
+atstrong{
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+atcivil{font-size: 1.2em;}
+
 
 /* Listes */
 ul, ol {
@@ -87,7 +112,14 @@ strong {
 	color: dimgray;
 }
 
+esp {
+	margin: 15px 0 0;
+	display: block;
+}
 
+tab {
+	text-indent: 50%;
+}
 /* --- STYLES POUR CERTAINS CONTENUS DES GABARITS --- */
 
 pre, code {
