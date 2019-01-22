@@ -43,14 +43,27 @@ class controleur {
 	            $retour = $retour . '<hr class="hracc"><button class="accordion">'.$row->nomCategorie.'</button><div class="panel">';
 	            $cat = $row->nomCategorie;
 	            $result->execute();
+	            $i=-1;
 	            while ( $row = $result->fetch ( PDO::FETCH_OBJ )) // parcourir chaque ligne s�lectionn�e
 	            {
 	                if($cat != $row->nomCategorie)//nouveau accordion si on change de catégorie d'assoc
 	                {
+	                    $i = -1;
 	                    $cat = $row->nomCategorie;
-	                    $retour = $retour .'</div><hr class="hracc"><button class="accordion">'.$row->nomCategorie.'</button><div class="panel">';
+	                    $retour = $retour .'</div><esp><hr class="hracc"><button class="accordion">'.$row->nomCategorie.'</button><div class="panel">';
 	                }
-	                $retour = $retour . '<p>'.$row->intitule.'</p>';
+	                $i++;
+	                if($i>0){$retour = $retour .'<br><hr><br>';}
+	                $retour = $retour . 
+	                '<p>
+                        <atstrong>'.$row->intitule.'</atstrong><br>
+                        <atcivil>President(e). '.$row->civilite.'. '.$row->nom.'</atcivil><br>
+                        <at>'.$row->adresse.'&nbsp;'.$row->adresse.'<esp>
+                        &emsp;&emsp;'.$row->descriptif.'<esp>
+                        Tel. : '.$this->set_tel($row->tel).'<br>
+                        <a class="b" title="site - reseau social de l\'association" href="'.$row->siteInternet.'">Lien vers la page officiel</a><br>
+                        </at>
+                    </p>';
 	            }
 	            return $retour = $retour . '</div>
                 <script>
@@ -66,7 +79,7 @@ class controleur {
 	        }
 	        else
 	        {
-	            return '<h3>pas d\'association</h3>';
+	            return '<err>*pas d\'association</err>';
 	        }
 	    }
 	}
@@ -84,6 +97,17 @@ class controleur {
 	        }
 	        return $retour;
 	    }
+	}
+	
+	public function set_tel ($tel){
+	    $i = 0;
+	    $newTel = '';
+	    while($i < 10)
+	    {
+	        $newTel = $newTel.substr($tel, $i, 2).' ';
+	        $i = $i + 2;
+	    }
+	    return $newTel;
 	}
 
 	
