@@ -37,7 +37,7 @@ class controleur {
 	    $result = $this->vpdo->liste_associations($nomCommune);
 	}
 	
-	public function infos_associations($nomCommune)
+	public function info_assoc($nomCommune)
 	{
 	    $result = $this->vpdo->liste_associations($nomCommune);
 	    if ($result != false) {

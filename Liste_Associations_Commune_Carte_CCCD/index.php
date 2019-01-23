@@ -22,7 +22,7 @@ switch ($params[2]) {
                     {
                         $site->titre = $params[4];
                         $site->js = 'app.min';
-                        $site->left_sidebar = $controleur->infos_associations($params[4]);
+                        $site->left_sidebar = $controleur->info_assoc($params[4]);
                         $site->affiche();
                     }
                     else{
