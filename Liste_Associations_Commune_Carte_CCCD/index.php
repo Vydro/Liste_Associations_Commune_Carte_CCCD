@@ -46,6 +46,11 @@ switch ($params[2]) {
             $site->affiche();  
         }
         break;
+    default:
+        $site->titre = 'Accueil';
+        $site->left_sidebar = '<img src="' . $site->path . '/image/erreur-404.png" alt="Erreur de liens">';
+        $site->affiche();
+        break;
 }
 
 ?>
