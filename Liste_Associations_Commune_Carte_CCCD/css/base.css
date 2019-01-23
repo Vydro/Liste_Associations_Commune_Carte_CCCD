@@ -32,7 +32,7 @@ h3 {
 	font-size: 2em;
 	color: #008BD2;
 }
-/* Divers attributs de texte */
+/* accordion */
 
 err{
 	margin: 1em 0 .5em 0;
@@ -48,16 +48,15 @@ at, atstrong, atcivil{
 }
 
 at{
-	font-size: 1em;
+	font-size: 1.3em;
 	color :#3a3a3a;
 }
 atstrong{
-	font-size: 1.5em;
+	font-size: 1.8em;
 	font-weight: bold;
 }
 
-atcivil{font-size: 1.2em;}
-
+atcivil{font-size: 1.5em;}
 
 /* Listes */
 ul, ol {

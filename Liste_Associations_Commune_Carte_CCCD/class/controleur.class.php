@@ -32,6 +32,11 @@ class controleur {
             <object data="'.$this->path.'/image/carte.svg" type="image/svg+xml" id="cartesvg" width="65%"></object>';
 	}
 	
+	public function liste_categories($nomCommune)
+	{
+	    $result = $this->vpdo->liste_associations($nomCommune);
+	}
+	
 	public function infos_associations($nomCommune)
 	{
 	    $result = $this->vpdo->liste_associations($nomCommune);
@@ -58,7 +63,8 @@ class controleur {
 	                '<p>
                         <atstrong>'.$row->intitule.'</atstrong><br>
                         <atcivil>President(e). '.$row->civilite.'. '.$row->nom.'</atcivil><br>
-                        <at>'.$row->adresse.'&nbsp;'.$row->adresse.'<esp>
+                        <at>'.$row->adresse.'<br>
+                        '.$row->cp.'&nbsp;'.$row->nomReelComm.'<esp>
                         &emsp;&emsp;'.$row->descriptif.'<esp>
                         Tel. : '.$this->set_tel($row->tel).'<br>
                         <a class="b" title="site - reseau social de l\'association" href="'.$row->siteInternet.'">Lien vers la page officiel</a><br>
@@ -83,7 +89,7 @@ class controleur {
 	        }
 	    }
 	}
-	
+
 	public function array_commune()
 	{
 	    $retour = array();
