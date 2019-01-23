@@ -14,7 +14,7 @@
 		.st1{font-family:'poppinsmedium';}
 		.st0{fill:#0080C8;stroke:#1D1D1B;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;transition: all .6s;cursor:pointer}
 		.st0:hover{fill:#556E7A;}
-		.st2{fill:#FFFFFF;cursor:pointer}
+		.st2{fill:#ffffff;cursor:pointer}
 		.st3{font-size:14}
 	]]>
 </style>
@@ -161,6 +161,7 @@
 <text transform="matrix(0.9999 0 0 1 600.2402 239.8965)" class="st1 st2 st3" onclick="parent.app.mapLinks('soudan')">Soudan</text>
 <text transform="matrix(0.9999 0 0 1 397.1895 30.3398)" class="st1 st2 st3" onclick="parent.app.mapLinks('soulvache')">Soulvache</text>
 <text transform="matrix(0.9999 0 0 1 617.4023 146.0596)" class="st1 st2 st3" onclick="parent.app.mapLinks('villepot')">Villepot</text>
-<text transform="matrix(0.9999 0 0 1 406.9043 553.9307)" class="st1 st2 st3" onclick="parent.app.mapLinks('la-meilleraye-de-bretagne')">La Meilleraye-</text>
-<text transform="matrix(0.9999 0 0 1 412.042 570.3115)" class="st1 st2 st3" onclick="parent.app.mapLinks('la-meilleraye-de-bretagne')">de-Bretagne</text>
+<text transform="matrix(0.9999 0 0 1 425.9043 527.9307)" class="st1 st2 st3" onclick="parent.app.mapLinks('la-meilleraye-de-bretagne')">La Meilleraye-</text>
+<text transform="matrix(0.9999 0 0 1 460.042 547.3115)" class="st1 st2 st3" onclick="parent.app.mapLinks('la-meilleraye-de-bretagne')">de-</text>
+<text transform="matrix(0.9999 0 0 1 437     570     )" class="st1 st2 st3" onclick="parent.app.mapLinks('la-meilleraye-de-bretagne')">Bretagne</text>
 </svg>
