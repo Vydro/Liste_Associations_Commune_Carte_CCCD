@@ -32,60 +32,22 @@ class controleur {
             <object data="'.$this->path.'/image/carte.svg" type="image/svg+xml" id="cartesvg" width="65%"></object>';
 	}
 	
-	public function liste_categories($nomCommune)
+	public function liste_categorie($nomCommune)
 	{
-	    $result = $this->vpdo->liste_associations($nomCommune);
-	}
-	
-	public function info_assoc($nomCommune)
-	{
-	    $result = $this->vpdo->liste_associations($nomCommune);
+	    $result = $this->vpdo->liste_categorie($nomCommune);
 	    if ($result != false) {
 	        $row = $result->fetch ( PDO::FETCH_OBJ );
 	        if($row != NULL)
 	        {
-	            $retour = '<h3>Associations de la commune de '. $row->nomReelComm.'</h3>';
-	            $retour = $retour . '<hr class="hracc"><button class="accordion">'.$row->nomCategorie.'</button><div class="panel">';
-	            $cat = $row->nomCategorie;
+	            $retour = '<h3>Associations de la commune de '. $row->nomReelComm.'</h3>
+                    <a class="button blue" href="'.$this->path.'/accueil/">retour à la carte</a><esp>';
+	            $retour = $retour . '<at>Filtrer par :</at><esp><select id="categorie"><option value="0">-- Toutes les catégories</option>';
 	            $result->execute();
-	            $i=-1;
-	            while ( $row = $result->fetch ( PDO::FETCH_OBJ )) // parcourir chaque ligne s�lectionn�e
+	            while ( $row = $result->fetch ( PDO::FETCH_OBJ )) // parcourir chaque ligne sï¿½lectionnï¿½e
 	            {
-	                if($cat != $row->nomCategorie)//nouveau accordion si on change de catégorie d'assoc
-	                {
-	                    $i = -1;
-	                    $cat = $row->nomCategorie;
-	                    $retour = $retour .'</div><esp><hr class="hracc"><button class="accordion">'.$row->nomCategorie.'</button><div class="panel">';
-	                }
-	                $i++;
-	                if($i>0){$retour = $retour .'<br><hr><br>';}
-	                $retour = $retour . 
-	                '<p>
-                        <atstrong>'.$row->intitule.'</atstrong><br>
-                        <atcivil>President(e). '.$row->civilite.'. '.$row->nom.'</atcivil><br>
-                        <at>'.$row->adresse.'<br>
-                        '.$row->cp.'&nbsp;'.$row->nomReelComm.'<esp>
-                        &emsp;&emsp;'.$row->descriptif.'<esp>
-                        Tel. : '.$this->set_tel($row->tel).'<br>
-                        <a class="b" title="site - reseau social de l\'association" href="'.$row->siteInternet.'">Lien vers la page officiel</a><br>
-                        </at>
-                    </p>';
+	                $retour = $retour . '<option value="'.$row->idCategorie.'">'.$row->nomCategorie.'</option>';
 	            }
-	            return $retour = $retour . '</div>
-                <script>
-                var acc= document.getElementsByClassName("accordion");
-                var i;
-                for (i = 0; i < acc.length; i++) {
-                    acc[i].onclick = function(){
-                    this.classList.toggle("active");
-                    this.nextElementSibling.classList.toggle("show");
-                    }
-                }
-                </script>';
-	        }
-	        else
-	        {
-	            return '<err>*pas d\'association</err>';
+	            return $retour = $retour . '</select>';
 	        }
 	    }
 	}
@@ -96,7 +58,7 @@ class controleur {
 	    $result = $this->vpdo->liste_communes();
 	    if ($result != false) {
 	        while ( $row = $result->fetch ( PDO::FETCH_OBJ ) )
-	        // parcourir chaque ligne s�lectionn�e
+	        // parcourir chaque ligne sï¿½lectionnï¿½e
 	        {
 	            
 	            $retour[]= $row->nomComm;
@@ -121,12 +83,12 @@ class controleur {
 		// initialiser la variable $mdp
 		$mdp = "";
 	
-		// Définir tout les caractères possibles dans le mot de passe,
-		// Il est possible de rajouter des voyelles ou bien des caractères spéciaux
+		// DÃ©finir tout les caractÃ¨res possibles dans le mot de passe,
+		// Il est possible de rajouter des voyelles ou bien des caractÃ¨res spÃ©ciaux
 		$possible = "2346789bcdfghjkmnpqrtvwxyzBCDFGHJKLMNPQRTVWXYZ&#@$*!";
 	
-		// obtenir le nombre de caractères dans la chaîne précédente
-		// cette valeur sera utilisé plus tard
+		// obtenir le nombre de caractÃ¨res dans la chaÃ®ne prÃ©cÃ©dente
+		// cette valeur sera utilisÃ© plus tard
 		$longueurMax = strlen($possible);
 	
 		if ($longueur > $longueurMax) {
@@ -136,20 +98,20 @@ class controleur {
 		// initialiser le compteur
 		$i = 0;
 	
-		// ajouter un caractère aléatoire à $mdp jusqu'à ce que $longueur soit atteint
+		// ajouter un caractÃ¨re alÃ©atoire Ã  $mdp jusqu'Ã  ce que $longueur soit atteint
 		while ($i < $longueur) {
-			// prendre un caractère aléatoire
+			// prendre un caractÃ¨re alÃ©atoire
 			$caractere = substr($possible, mt_rand(0, $longueurMax-1), 1);
 	
-			// vérifier si le caractère est déjà utilisé dans $mdp
+			// vÃ©rifier si le caractÃ¨re est dÃ©jÃ  utilisÃ© dans $mdp
 			if (!strstr($mdp, $caractere)) {
-				// Si non, ajouter le caractère à $mdp et augmenter le compteur
+				// Si non, ajouter le caractÃ¨re Ã  $mdp et augmenter le compteur
 				$mdp .= $caractere;
 				$i++;
 			}
 		}
 	
-		// retourner le résultat final
+		// retourner le rÃ©sultat final
 		return $mdp;
 	}
 	

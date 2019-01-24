@@ -41,22 +41,12 @@ err{
 	font-size: 1em;
 	color: red;
 }
-at, atstrong, atcivil{
+at{
 	font-family: "HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-weight: normal;
-	color: black;
-}
-
-at{
-	font-size: 1.3em;
+	font-size: 1.5em;
 	color :#3a3a3a;
 }
-atstrong{
-	font-size: 1.8em;
-	font-weight: bold;
-}
-
-atcivil{font-size: 1.5em;}
 
 /* Listes */
 ul, ol {
@@ -77,29 +67,9 @@ li p, blockquote p {
 	margin: .5em 0;
 }
 
-/* Citations */
-blockquote, q {
-	font-size: 1.1em;
-	font-style: italic;
-	font-family: Georgia, "Bitstream Vera Serif", Norasi, serif;
-}
-blockquote {
-	margin: .75em 0 .75em 24px;
-}
-cite {
-	font-style: italic;
-}
-
 /* Liens */
 a {
-	color: mediumblue;
-	text-decoration: underline;
-}
-a:hover, a:focus {
-	color: crimson;
-}
-a img {
-	border: none; 
+    text-decoration: none;
 }
 
 /* Divers éléments de type en-ligne */

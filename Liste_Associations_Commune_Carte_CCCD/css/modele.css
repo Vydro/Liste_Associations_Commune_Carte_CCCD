@@ -85,67 +85,54 @@ margin: 0 10px 10px 10px;
 }
 /* Contenu principal */
 
-	/* accordion */
+	/* bouton retour */
+
+a.button {
+    display: inline-block;
+    color: #fff;
+    line-height: 20px;
+    font-family: "HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 1.15em;
+    padding: 0 30px 0 20px;
+    border-radius: 20px;
+}
+
+a.button.blue {
+    background: #008BD2;
+}
+
+a.button:hover{
+	background: #546E7B;
+	transition: 0.3s;
+}
+
+a.button:before{
+	content: "\25C0";
+	margin-right: 10px;
+}
 	
-.accordion {
-	background-color: #d1d1d1;
-	font-size: 1.36em;
-	font-family: "HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-weight: normal;
-	color :#546E7B;
-	cursor: pointer;
-	padding: 18px;
-	width: 100%;
-	border: none;
-	text-align: left;
-	outline: none;
-	transition: 0.7s;
-}
+	/* class hr */
 
-.active, .accordion:hover{
-	background-color: #546E7B;
-	color: #d1d1d1;
-}
-
-.panel {
-    padding: 0 18px;
-    display: none;
-    background-color: #E9EDEF;
-}
-
-.panel.show {
-    display: block !important;
-}
-
-.accordion:after{
-  content: '\02795'; /* Unicode character for "plus" sign (+) */
-  font-size: 13px;
-  color: #546E7B;
-  float: right;
-  margin-left: 5px;
-}
-
-.active:after {
-  content: "\2796"; /* Unicode character for "minus" sign (-) */
-  color: #E9EDEF;
-}
-
-/* class hr */
-
-.hr{
+.hr, .hracc{
   margin: 0;
   height: 5px;
   background-color: #008BD2;
   border: none; /*on supprime le style par défaut*/
 }
 
-.hracc{
-  margin: 0;
-  height: 2px;
-  background-color: #008BD2;
-  border: none; /*on supprime le style par défaut*/
-}
+.hracc{height: 2px;}
 
+/* Custom Select */
+.slt {
+  position: relative;
+  display: block;
+  width: 20em;
+  height: 3em;
+  line-height: 3;
+  background: #2c3e50;
+  overflow: hidden;
+  border-radius: 20px;
+}
 /* Menu de navigation */
 
 #menu_horizontal
@@ -247,6 +234,11 @@ footer {
 	margin: 0;
 	padding: 15px 20px 10px 0;
 	font-size: .85em;
+}
+
+a.footer
+{
+	text-decoration: underline;
 }
 
 /* Mention de copyright */
