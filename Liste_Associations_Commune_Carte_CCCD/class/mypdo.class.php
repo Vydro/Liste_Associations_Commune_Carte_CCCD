@@ -4,7 +4,7 @@ class mypdo extends PDO{
     private $PARAM_hote='localhost'; // le chemin vers le serveur
     private $PARAM_utilisateur='root'; // nom d'utilisateur pour se connecter
     private $PARAM_mot_passe=''; // mot de passe de l'utilisateur pour se connecter
-    private $PARAM_nom_bd='association_cccd'; // nom de la base de donnée ustilisée
+    private $PARAM_nom_bd='association_cccd'; // nom de la base de donnï¿½e ustilisï¿½e
     private $connexion;
     public function __construct() {
         try {
@@ -41,6 +41,23 @@ class mypdo extends PDO{
             and a.idPresident=p.idPresident
             and cm.nomComm ="'.$nomCommune.'"
             order by nomCategorie';
+        $result=$this->connexion ->query($requete);
+        if ($result)
+        {
+            return ($result);
+        }
+    }
+    
+    public function liste_categorie($nomCommune)
+    {
+        $requete='
+        select nomCategorie
+        from association a, categorie ct, commune cm
+        where a.idCategorie=ct.idCategorie
+        and a.idCommune=cm.idCommune
+        and cm.nomComm ="'.$nomCommune.'"
+        order by nomCategorie
+        group by nomCategorie';
         $result=$this->connexion ->query($requete);
         if ($result)
         {
