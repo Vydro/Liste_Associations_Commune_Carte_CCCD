@@ -5,7 +5,7 @@ class page_base {
 	protected $left_sidebar;
 	protected $titre;
 	protected $js=array('jquery-3.3.1.min','bootstrap.min');
-	protected $css=array('perso','bootstrap.min','base', 'modele');
+	protected $css=array('base', 'modele');
 	protected $page;
 	protected $metadescription="Bienvenue sur le site de la CCCD, regroupant les associations présentent dans chaque commune";
 	protected $metakeyword=array('comcom','chateaubriant','derval','association','commune');
@@ -162,7 +162,7 @@ class page_base {
 		<!-- Footer -->
 			<footer>
 				Site officiel de la 
-				<a href="http://cc-chateaubriant-derval.fr/">Communauté de Commune Châteaubriant - Derval</a>
+				<a class="footer" href="http://cc-chateaubriant-derval.fr/">Communauté de Commune Châteaubriant - Derval</a>
                 &copy; 2019
 				</p>
             </footer>

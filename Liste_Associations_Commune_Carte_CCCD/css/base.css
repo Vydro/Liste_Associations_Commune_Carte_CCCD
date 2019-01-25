@@ -41,12 +41,22 @@ err{
 	font-size: 1em;
 	color: red;
 }
-at{
+at, atstrong, atcivil{
 	font-family: "HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-weight: normal;
-	font-size: 1.5em;
+	color: black;
+}
+
+at{
+	font-size: 1.3em;
 	color :#3a3a3a;
 }
+atstrong{
+	font-size: 1.8em;
+	font-weight: bold;
+}
+
+atcivil{font-size: 1.5em;}
 
 /* Listes */
 ul, ol {
