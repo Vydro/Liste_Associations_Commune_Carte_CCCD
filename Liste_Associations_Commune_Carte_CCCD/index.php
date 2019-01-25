@@ -7,7 +7,6 @@ $controleur = new controleur();
 $request = strtolower($_SERVER['REQUEST_URI']);
 $params = explode('/', trim($request, '/'));
 $params = array_filter($params);
-// var_dump($params);
 if (! isset($params[2])) {
     $params[2] = 'accueil';
 }
@@ -22,7 +21,9 @@ switch ($params[2]) {
                     {
                         $site->titre = $params[4];
                         $site->js = 'app.min';
-                        $site->left_sidebar = $controleur->info_assoc($params[4]);
+                        $site->js = 'categorie';
+                        $site->left_sidebar = $controleur->liste_categorie($params[4]);
+                        $site->left_sidebar = $controleur->afficher_association();
                         $site->affiche();
                     }
                     else{
@@ -52,5 +53,4 @@ switch ($params[2]) {
         $site->affiche();
         break;
 }
-
 ?>

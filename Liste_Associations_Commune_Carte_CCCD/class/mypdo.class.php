@@ -31,17 +31,35 @@ class mypdo extends PDO{
         }
     }
     
-    public function liste_associations($nomCommune)
+    public function liste_associations($nomCommune, $idCategorie)
     {
         $requete='
-            select intitule, adresse, tel, siteInternet, descriptif, nomCategorie, nomComm, nomReelComm, cp, civilite, nom, prenom
+            select intitule, nomCategorie, civilite, nom, adresse, cp 
             from association a, categorie ct, commune cm, president p
             where a.idCategorie=ct.idCategorie
             and a.idCommune=cm.idCommune
             and a.idPresident=p.idPresident
             and cm.nomComm ="'.$nomCommune.'"
-            order by nomCategorie';
+            and a.idCategorie="'.$idCategorie.'"
+            order by intitule';
         $result=$this->connexion ->query($requete);
+        if ($result)
+        {
+            return ($result);
+        }
+    }
+    
+    public function liste_toutes_les_associations($nomCommune)
+    {
+        $requete='
+            select intitule, nomCategorie, civilite, nom, adresse, cp
+            from association a, categorie ct, commune cm, president p
+            where a.idCategorie=ct.idCategorie
+            and a.idCommune=cm.idCommune
+            and a.idPresident=p.idPresident
+            and cm.nomComm ="'.$nomCommune.'"
+            order by intitule';
+        $result=$this->connexion ->query($requete); //liste_toutes_les_associations
         if ($result)
         {
             return ($result);
@@ -51,13 +69,13 @@ class mypdo extends PDO{
     public function liste_categorie($nomCommune)
     {
         $requete='
-        select nomCategorie
+        select ct.idCategorie, nomCategorie, nomReelComm
         from association a, categorie ct, commune cm
         where a.idCategorie=ct.idCategorie
         and a.idCommune=cm.idCommune
         and cm.nomComm ="'.$nomCommune.'"
-        order by nomCategorie
-        group by nomCategorie';
+        group by nomCategorie
+        order by nomCategorie';
         $result=$this->connexion ->query($requete);
         if ($result)
         {

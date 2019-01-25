@@ -41,7 +41,8 @@ class controleur {
 	        {
 	            $retour = '<h3>Associations de la commune de '. $row->nomReelComm.'</h3>
                     <a class="button blue" href="'.$this->path.'/accueil/">retour à la carte</a><esp>';
-	            $retour = $retour . '<at>Filtrer par :</at><esp><select id="categorie"><option value="0">-- Toutes les catégories</option>';
+	            $retour = $retour . '<at>Filtrer par :</at><esp><select id="categorie" onChange="js_change_cat()">
+                    <option value="0">-- Toutes les catégories</option>';
 	            $result->execute();
 	            while ( $row = $result->fetch ( PDO::FETCH_OBJ )) // parcourir chaque ligne sï¿½lectionnï¿½e
 	            {
@@ -50,6 +51,12 @@ class controleur {
 	            return $retour = $retour . '</select>';
 	        }
 	    }
+	}
+	
+	public function afficher_association()
+	{
+        $retour = '<div id="divAssoc" style="display:none">VIDE</div>';
+        return $retour;
 	}
 
 	public function array_commune()
