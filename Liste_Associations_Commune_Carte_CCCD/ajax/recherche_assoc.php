@@ -2,27 +2,26 @@
 include_once('../class/autoload.php');
 $data = array();
 $mypdo=new mypdo();
-$request = strtolower($_SERVER['REQUEST_URI']);
-$params = explode('/', trim($request, '/'));
-$params = array_filter($params);
 
-if(isset($_POST['idCat']))
+if(isset($_POST['idCat']) && isset($_POST['commune']) )
 {
-    //if(($_POST['idCat']) != 0){
-        $resultat = $mypdo->liste_associations($params[4],$_POST['idCat']);
-    //}
-    //else{
-    //    $resultat = $mypdo->liste_toutes_les_associations($params[4]);
-    //}
-    if(isset($resultat)){
-		while($donnees = $resultat->fetch(PDO::FETCH_OBJ));
+    if(($_POST['idCat']) != 0){
+        $result = $mypdo->liste_associations($_POST['commune'], $_POST['idCat']);
+    }
+    else{
+        $result = $mypdo->liste_toutes_les_associations($_POST['commune']);
+    }
+    if(isset($result)){
+        $result->SetFetchMode(PDO::FETCH_OBJ);
+        foreach($result as $row)
 		{
-			$data["intitule"][] = ($donnees->intitule);
-			//$data["nomCategorie"][] = ($donnees->nomCategorie);
-			//$data["civilite"][] = ($donnees->civilite);
-			//$data["nom"][] = ($donnees->nom);
-			//$data["adresse"][] = ($donnees->adresse);
-			//$data["cp"][] = ($donnees->cp);
+		    $data['intitule'][] = ($row->intitule);
+		    $data['adresse'][] = ($row->adresse);
+		    $data["nomCategorie"][] = ($row->nomCategorie);
+		    $data["civilite"][] = ($row->civilite);
+		    $data["nom"][] = ($row->nom);
+		    $data["adresse"][] = ($row->adresse);
+		    $data["cp"][] = ($row->cp);
 		}
 	}
 }
