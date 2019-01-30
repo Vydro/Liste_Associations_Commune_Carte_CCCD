@@ -16,12 +16,10 @@ if(isset($_POST['idCat']) && isset($_POST['commune']) )
         foreach($result as $row)
 		{
 		    $data['intitule'][] = ($row->intitule);
-		    $data['adresse'][] = ($row->adresse);
 		    $data["nomCategorie"][] = ($row->nomCategorie);
 		    $data["civilite"][] = ($row->civilite);
 		    $data["nom"][] = ($row->nom);
 		    $data["adresse"][] = ($row->adresse);
-		    $data["cp"][] = ($row->cp);
 		}
 	}
 }

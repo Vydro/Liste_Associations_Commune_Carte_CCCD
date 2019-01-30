@@ -41,21 +41,41 @@ class controleur {
 	        {
 	            $retour = '<h3>Associations de la commune de '. $row->nomReelComm.'</h3>
                     <a class="button blue" href="'.$this->path.'/accueil/">retour à la carte</a><esp>';
-	            $retour = $retour . '<at>Filtrer par :</at><esp><select id="categorie" onChange="js_change_cat()">
+	            $retour = $retour . '<at>Filtrer par :</at><esp><select id="categorie" onChange="js_change_cat()" >
                     <option value="0">-- Toutes les catégories</option>';
 	            $result->execute();
 	            while ( $row = $result->fetch ( PDO::FETCH_OBJ )) // parcourir chaque ligne sï¿½lectionnï¿½e
 	            {
 	                $retour = $retour . '<option value="'.$row->idCategorie.'">'.$row->nomCategorie.'</option>';
 	            }
-	            return $retour = $retour . '</select>';
+	            return $retour = $retour . '</select><esp><hr class="hracc"><esp>';
 	        }
+	    }
+	}
+	
+	public function afficher_association_load($nomCommune)
+	{
+	    $result = $this->vpdo->liste_toutes_les_associations($nomCommune);
+	    if ($result != false) {
+	        $retour ='';
+	        while ( $row = $result->fetch ( PDO::FETCH_OBJ )) // parcourir chaque ligne sï¿½lectionnï¿½e
+	        {
+	            $retour = $retour . '<div id="divAssocLoad" style="display:block">
+                    <p><atstrong>'.$row->intitule.'</atstrong> - Association '.$row->nomCategorie.'<br>
+                    <atcivil>Président(e) '.$row->civilite.' '.$row->nom.'</atcivil><br>
+                    <at>'.$row->adresse.'</at><br>
+                    <esp><hr>
+                    </p>';
+	        }
+	        return $retour = $retour . '</div><a class="b" href="../commune/'.$nomCommune.'">Plus d\'infos &#8594;</a><esp>';
 	    }
 	}
 	
 	public function afficher_association()
 	{
-        $retour = '<div id="divAssoc" style="display:none">VIDE</div>';
+	    
+        $retour = '<div id="divAssoc" style="display:none"></div>
+            <a class="button blue" href="'.$this->path.'/accueil/">retour à la carte</a><esp>';
         return $retour;
 	}
 
