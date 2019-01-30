@@ -141,9 +141,7 @@ class page_base {
 		echo '
 		<div id="menu_horizontal">
 			<nav >
-				<div >
-
-				';
+				<div >';
 						
 	}
 	public function affiche_footer_menu(){
@@ -165,8 +163,7 @@ class page_base {
 				<a class="footer" href="http://cc-chateaubriant-derval.fr/">Communauté de Commune Châteaubriant - Derval</a>
                 &copy; 2019
 				</p>
-            </footer>
-		';
+            </footer>';
 	}
 
 	
