@@ -40,7 +40,7 @@ class mypdo extends PDO{
             and a.idCommune=cm.idCommune
             and a.idPresident=p.idPresident
             and cm.nomComm ="'.$nomCommune.'"';
-        if($idCategorie == -1){
+        if($idCategorie != 0){
             $requete = $requete . 'and a.idCategorie="'.$idCategorie.'"';
         }
         $requete = $requete . 'order by intitule';
