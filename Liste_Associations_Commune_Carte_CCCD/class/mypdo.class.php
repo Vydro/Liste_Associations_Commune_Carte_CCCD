@@ -31,35 +31,20 @@ class mypdo extends PDO{
         }
     }
     
-    public function liste_associations($nomCommune, $idCategorie)
+    public function infos_assoc($nomCommune, $idCategorie)
     {
         $requete='
-            select intitule, nomCategorie, civilite, nom, adresse 
+            select intitule, adresse, tel, siteInternet, descriptif, nomCategorie, nomComm, civilite, nom, prenom
             from association a, categorie ct, commune cm, president p
             where a.idCategorie=ct.idCategorie
             and a.idCommune=cm.idCommune
             and a.idPresident=p.idPresident
-            and cm.nomComm ="'.$nomCommune.'"
-            and a.idCategorie="'.$idCategorie.'"
-            order by intitule';
-        $result=$this->connexion ->query($requete);
-        if ($result)
-        {
-            return ($result);
+            and cm.nomComm ="'.$nomCommune.'"';
+        if($idCategorie == -1){
+            $requete = $requete . 'and a.idCategorie="'.$idCategorie.'"';
         }
-    }
-    
-    public function liste_toutes_les_associations($nomCommune)
-    {
-        $requete='
-            select intitule, nomCategorie, civilite, nom, adresse
-            from association a, categorie ct, commune cm, president p
-            where a.idCategorie=ct.idCategorie
-            and a.idCommune=cm.idCommune
-            and a.idPresident=p.idPresident
-            and cm.nomComm ="'.$nomCommune.'"
-            order by intitule';
-        $result=$this->connexion ->query($requete); //liste_toutes_les_associations
+        $requete = $requete . 'order by intitule';
+        $result=$this->connexion ->query($requete);
         if ($result)
         {
             return ($result);
