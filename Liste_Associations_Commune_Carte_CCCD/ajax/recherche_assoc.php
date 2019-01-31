@@ -8,8 +8,7 @@ if(isset($_POST['idCat']) && isset($_POST['commune']) )
     $result = $mypdo->liste_assoc($_POST['commune'], $_POST['idCat']);
 
     if(isset($result)){
-        $result->SetFetchMode(PDO::FETCH_OBJ);
-        foreach($result as $row)
+        while ( $row = $result->fetch ( PDO::FETCH_OBJ ))
 		{
 		    $data['intitule'][] = ($row->intitule);
 		    $data["nomCategorie"][] = ($row->nomCategorie);
