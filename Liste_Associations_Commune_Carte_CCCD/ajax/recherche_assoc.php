@@ -4,13 +4,9 @@ $data = array();
 $mypdo=new mypdo();
 
 if(isset($_POST['idCat']) && isset($_POST['commune']) )
-{
-    if(($_POST['idCat']) != 0){
-        $result = $mypdo->liste_associations($_POST['commune'], $_POST['idCat']);
-    }
-    else{
-        $result = $mypdo->liste_toutes_les_associations($_POST['commune']);
-    }
+{   
+    $result = $mypdo->liste_assoc($_POST['commune'], $_POST['idCat']);
+
     if(isset($result)){
         $result->SetFetchMode(PDO::FETCH_OBJ);
         foreach($result as $row)

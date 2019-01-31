@@ -31,7 +31,7 @@ class mypdo extends PDO{
         }
     }
     
-    public function infos_assoc($nomCommune, $idCategorie)
+    public function liste_assoc($nomCommune, $idCategorie)
     {
         $requete='
             select intitule, adresse, tel, siteInternet, descriptif, nomCategorie, nomComm, civilite, nom, prenom
