@@ -53,24 +53,6 @@ class controleur {
 	    }
 	}
 	
-	public function afficher_association_load($nomCommune)
-	{
-	    $result = $this->vpdo->liste_toutes_les_associations($nomCommune);
-	    if ($result != false) {
-	        $retour ='';
-	        while ( $row = $result->fetch ( PDO::FETCH_OBJ )) // parcourir chaque ligne sï¿½lectionnï¿½e
-	        {
-	            $retour = $retour . '<div id="divAssocLoad" style="display:block">
-                    <p><atstrong>'.$row->intitule.'</atstrong> - Association '.$row->nomCategorie.'<br>
-                    <atcivil>Président(e) '.$row->civilite.' '.$row->nom.'</atcivil><br>
-                    <at>'.$row->adresse.'</at><br>
-                    <esp><hr>
-                    </p>';
-	        }
-	        return $retour = $retour . '</div><a class="b" href="../commune/'.$nomCommune.'">Plus d\'infos &#8594;</a><esp>';
-	    }
-	}
-	
 	public function afficher_association()
 	{
 	    
