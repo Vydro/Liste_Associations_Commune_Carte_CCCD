@@ -34,7 +34,7 @@ class mypdo extends PDO{
     public function liste_assoc($nomCommune, $idCategorie)
     {
         $requete='
-            select intitule, adresse, tel, siteInternet, descriptif, nomCategorie, nomComm, civilite, nom, prenom
+            select intitule, nomCategorie, civilite, nom, adresse, cp
             from association a, categorie ct, commune cm, president p
             where a.idCategorie=ct.idCategorie
             and a.idCommune=cm.idCommune
@@ -44,6 +44,22 @@ class mypdo extends PDO{
             $requete = $requete . 'and a.idCategorie="'.$idCategorie.'"';
         }
         $requete = $requete . 'order by intitule';
+        $result=$this->connexion ->query($requete);
+        if ($result)
+        {
+            return ($result);
+        }
+    }
+    
+    public function infos_assoc($nomAssociation)
+    {
+        $requete='
+            select intitule, adresse, tel, siteInternet, descriptif, nomCategorie, nomComm, civilite, nom, prenom
+            from association a, categorie ct, commune cm, president p
+            where a.idCategorie=ct.idCategorie
+            and a.idCommune=cm.idCommune
+            and a.idPresident=p.idPresident
+            and intitule ="'.$nomAssociation.'"';
         $result=$this->connexion ->query($requete);
         if ($result)
         {
