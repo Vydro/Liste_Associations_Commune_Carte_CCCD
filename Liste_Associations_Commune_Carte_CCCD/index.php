@@ -12,31 +12,27 @@ if (! isset($params[2])) {
 }
 switch ($params[2]) {
     case 'accueil':
-        if (isset($params[3])) 
-        {
-            switch ($params[3]) 
-            {
+        if (isset($params[3])) {
+            switch ($params[3]) {
                 case 'commune':
-                    if (isset($params[4]) && in_array($params[4], $controleur->array_commune($params[4])))
-                    {
-                        $site->titre = $params[4];
-                        $site->js = 'app.min';
-                        $site->js = 'categorie';
-                        $site->left_sidebar = $controleur->liste_categorie($params[4]);
-                        $site->left_sidebar = $controleur->afficher_association();
-                        $site->affiche();
-                    }
-                    else{
-                        $site->titre = 'Accueil';
-                        $site->left_sidebar = '<img src="' . $site->path . '/image/erreur-404.png" alt="Erreur de liens">';
-                        $site->affiche();
-                    }
-                    break;
-                default:
-                    $site->titre = 'Accueil';
-                    $site->left_sidebar = '<img src="' . $site->path . '/image/erreur-404.png" alt="Erreur de liens">';
-                    $site->affiche();
-                    break;
+                    if (isset($params[4]) && in_array($params[4], $controleur->array_commune($params[4]))) {
+                        if (isset($params[5]) && $controleur->infos_assoc(urldecode($params[5])) != '') {
+                            $site->titre = urldecode($params[5]);
+                            $site->left_sidebar = $controleur->infos_assoc(urldecode($params[5]));
+                            $site->affiche();
+                        }
+                        else{
+                            if(! isset($params[5])){
+                                $site->titre = $params[4];
+                                $site->js = 'categorie';
+                                $site->left_sidebar = $controleur->liste_categorie($params[4]);
+                                $site->left_sidebar = $controleur->afficher_associations();
+                                $site->affiche();
+                            }else{deflt($site);}
+                        }
+                    }else{deflt($site);}
+                break;
+                default:deflt($site);
             }
         }
         else 
@@ -47,10 +43,13 @@ switch ($params[2]) {
             $site->affiche();  
         }
         break;
-    default:
-        $site->titre = 'Accueil';
-        $site->left_sidebar = '<img src="' . $site->path . '/image/erreur-404.png" alt="Erreur de liens">';
-        $site->affiche();
-        break;
+    default:deflt($site);
+}
+
+
+function deflt($site){
+    $site->titre = 'Accueil';
+    $site->left_sidebar = '<img src="' . $site->path . '/image/erreur-404.png" alt="Erreur de liens">';
+    $site->affiche();
 }
 ?>

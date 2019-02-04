@@ -19,15 +19,15 @@ $('#divAssoc').empty();
         		retour = JSON.parse(retour);
         		var i = 0;
         		while(i < retour["intitule"].length){
-        				document.getElementById("divAssoc").innerHTML += '<p>'+
-        					'<atstrong>'+retour['intitule'][i]+'</atstrong> - Association '+retour['nomCategorie'][i]+'<br>'+
-        					'<atcivil>Président(e) '+retour['civilite'][i]+' '+retour['nom'][i]+'</atcivil><br>'+
-        					'<at>'+retour['adresse'][i]+'</at><br>'+
-        					'<a class="b" href="/commune/'+commune+'">Plus d\'infos &#8594;</a>'+
-        					'<esp><hr></p>';
-        				i++;
-        			};
-   				},
+       				document.getElementById("divAssoc").innerHTML += '<p>'+
+       					'<atstrong>'+retour['intitule'][i]+'</atstrong> - Association '+retour['nomCategorie'][i]+'<br>'+
+       					'<atcivil>Président(e) '+retour['civilite'][i]+' '+retour['nom'][i]+'</atcivil><br>'+
+       					'<at>'+retour['adresse'][i]+'</at><br>'+
+       					'<a class="b" href="'+document.location.href+'/'+encodeURIComponent(retour['intitule'][i].toString().toLowerCase())+'">Plus d\'infos &#8594;</a>'+
+        				'<esp><hr></p>';
+        			i++;
+        		};
+   			},
    			error: function(jqXHR, textStatus)
    			{
 			//traitement des erreurs ajax

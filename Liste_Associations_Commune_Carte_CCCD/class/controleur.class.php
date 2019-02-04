@@ -10,14 +10,11 @@ class controleur {
 	}
 	public function __get($propriete) {
 		switch ($propriete) {
-			case 'vpdo' :
-				{
+			case 'vpdo' :{
 					return $this->vpdo;
 					break;
 				}
-			case 'db' :
-				{
-					
+			case 'db' :{
 				    return $this->db;
 					break;
 				}
@@ -53,12 +50,27 @@ class controleur {
 	    }
 	}
 	
-	public function afficher_association()
+	public function afficher_associations()
 	{
-	    
-        $retour = '<div id="divAssoc" style="display:none"></div>
-            <a class="button blue" href="'.$this->path.'/accueil/">retour à la carte</a><esp>';
-        return $retour;
+	    return'<div id="divAssoc" style="display:none">
+            </div><a class="button blue" href="'.$this->path.'/accueil/">retour à la carte</a><esp>';
+	}
+	
+	public function infos_assoc($nomAssociation)
+	{
+	    $result = $this->vpdo->infos_assoc($nomAssociation);
+	    if ($result != false) {
+	        $row = $result->fetch ( PDO::FETCH_OBJ );
+	        if (! isset($row->nomCategorie)){return '';}
+	        $president = "President";
+	            if($row->civilite == "Madame"){$president = $president."e";}
+	        return '<h3>Association '.$row->nomCategorie.' - '. $row->intitule.'</h3>
+                <a class="button blue" href="'.$this->path.'/accueil/commune/'.$row->nomComm.'">retour à la liste des associations</a><esp>
+                <atcivil>'.$president.' '.$row->civilite.' '.$row->nom.' '.$row->prenom.'</atcivil><br>
+                <at>'.$row->adresse.'<br>'.$row->cp.' '.$row->nomReelComm.'<esp> &emsp; &emsp;'.$row->descriptif.'<esp>
+                Tel. '.$this->set_tel($row->tel).'</at>
+                <a class="b" href="'.$row->siteInternet.'" target = "_blank">Site officiel &#8594;</a>';
+	    }  
 	}
 
 	public function array_commune()
@@ -76,7 +88,8 @@ class controleur {
 	    }
 	}
 	
-	public function set_tel ($tel){
+	public function set_tel ($tel)
+	{
 	    $i = 0;
 	    $newTel = '';
 	    while($i < 10)
@@ -86,45 +99,6 @@ class controleur {
 	    }
 	    return $newTel;
 	}
-
-	
-	public function genererMDP ($longueur = 8){
-		// initialiser la variable $mdp
-		$mdp = "";
-	
-		// DÃ©finir tout les caractÃ¨res possibles dans le mot de passe,
-		// Il est possible de rajouter des voyelles ou bien des caractÃ¨res spÃ©ciaux
-		$possible = "2346789bcdfghjkmnpqrtvwxyzBCDFGHJKLMNPQRTVWXYZ&#@$*!";
-	
-		// obtenir le nombre de caractÃ¨res dans la chaÃ®ne prÃ©cÃ©dente
-		// cette valeur sera utilisÃ© plus tard
-		$longueurMax = strlen($possible);
-	
-		if ($longueur > $longueurMax) {
-			$longueur = $longueurMax;
-		}
-	
-		// initialiser le compteur
-		$i = 0;
-	
-		// ajouter un caractÃ¨re alÃ©atoire Ã  $mdp jusqu'Ã  ce que $longueur soit atteint
-		while ($i < $longueur) {
-			// prendre un caractÃ¨re alÃ©atoire
-			$caractere = substr($possible, mt_rand(0, $longueurMax-1), 1);
-	
-			// vÃ©rifier si le caractÃ¨re est dÃ©jÃ  utilisÃ© dans $mdp
-			if (!strstr($mdp, $caractere)) {
-				// Si non, ajouter le caractÃ¨re Ã  $mdp et augmenter le compteur
-				$mdp .= $caractere;
-				$i++;
-			}
-		}
-	
-		// retourner le rÃ©sultat final
-		return $mdp;
-	}
-	
-	
 }
 
 ?>
