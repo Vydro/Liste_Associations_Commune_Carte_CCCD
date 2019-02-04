@@ -117,7 +117,8 @@ class page_base {
 	protected function affiche_entete() {
 		echo'
            <header>
-				<img  class="img-responsive"  width="200" height="210" src="'.$this->path.'/image/logo.jpg" alt="logo" style="float:left;padding: 0 10px 10px 0;"/>
+				<a   href="'.$this->path.'/Accueil" ><img  class="img-responsive"  width="200" height="210" 
+                    src="'.$this->path.'/image/logo.jpg" alt="logo" style="float:left;padding: 0 10px 10px 0;"/></a>
                 <h1>
 					Associations des différentes communes
 				</h1>

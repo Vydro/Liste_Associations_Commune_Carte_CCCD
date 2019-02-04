@@ -23,7 +23,7 @@ class mypdo extends PDO{
     }
     public function __get($propriete) {
         switch ($propriete) {
-            case 'connexion' :
+            case 'connexion' :  
                 {
                     return $this->connexion;
                     break;
@@ -54,7 +54,7 @@ class mypdo extends PDO{
     public function infos_assoc($nomAssociation)
     {
         $requete='
-            select intitule, adresse, tel, siteInternet, descriptif, nomCategorie, nomComm, civilite, nom, prenom
+            select intitule, adresse, cp, tel, siteInternet, descriptif, nomCategorie, nomComm, nomReelComm, civilite, nom, prenom
             from association a, categorie ct, commune cm, president p
             where a.idCategorie=ct.idCategorie
             and a.idCommune=cm.idCommune
