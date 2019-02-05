@@ -137,6 +137,23 @@ class page_base {
 					<li ><a   href="'.$this->path.'/Accueil" >Accueil</a></li>
 				</ul>';
 	}
+	protected function affiche_menu_connexion() {
+	    
+	    if(!(isset($_SESSION['id']) && isset($_SESSION['type'])))
+	    {
+	        echo '
+					<ul >
+						<li><a  href="'.$this->path.'/Connexion">Connexion</a></li>
+					</ul>';
+	    }
+	    else
+	    {
+	        echo '
+					<ul >
+						<li><a  href="'.$this->path.'/Deconnexion">Déconnexion</a></li>
+					</ul>';
+	    }
+	}
 	
 	public function affiche_entete_menu() {
 		echo '
@@ -191,6 +208,7 @@ class page_base {
 						<?php $this->affiche_entete(); ?>
 						<?php $this->affiche_entete_menu(); ?>
 						<?php $this->affiche_menu(); ?>
+						<?php $this->affiche_menu_connexion(); ?>
 						<?php $this->affiche_footer_menu(); ?>
 						
   						<div style="clear:both;">
