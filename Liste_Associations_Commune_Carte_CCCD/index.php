@@ -43,6 +43,19 @@ switch ($params[2]) {
             $site->affiche();  
         }
         break;
+    case 'connexion' :
+        $site->titre = 'Connexion';
+        $site->js = 'jquery-3.3.1.min';
+        $site->js = 'bootstrap';
+        $site->js = 'connexion';
+        $site-> left_sidebar = $controleur->retourne_formulaire_login();
+        $site->affiche();
+        break;
+    case 'deconnexion' :
+        $_SESSION=array();
+        session_destroy();
+        echo '<script>document.location.href="index.php"; </script>';
+        break;
     default:deflt($site);
 }
 

@@ -99,6 +99,38 @@ class controleur {
 	    }
 	    return $newTel;
 	}
+	
+	
+	public function retourne_formulaire_login() {
+	    $retour = '
+           <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <div class="modal fade" id="connexionModal" role="dialog" style="color:#000;">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+        				<h3 class="modal-title"><span class="fas fa-lock"></span> Connexion</h3>
+        				<button type="button" class="close" data-dismiss="modal" aria-label="Close" ">
+          					<span aria-hidden="true">&times;</span>
+        				</button>
+      				</div>
+					<div class="modal-body">
+						<form role="form" id="connexion" method="post">
+							<div class="form-group">
+								<label for="login"><span class="fas fa-user"></span> Login</label>
+								<input type="text" class="form-control" id="login" name="login" placeholder="Login">
+							</div>
+							<div class="form-group">
+								<label for="password"><span class="fas fa-eye"></span> Password</label>
+								<input type="password" class="form-control" id="password" name="password" placeholder="Password">
+							</div>
+							<button type="submit" class="btn btn-success btn-block" class="submit"><span class="fas fa-power-off"></span> Login</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>';
+	    return $retour;
+	}
 }
 
 ?>
