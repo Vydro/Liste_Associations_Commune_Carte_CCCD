@@ -81,7 +81,6 @@ class controleur {
 	        while ( $row = $result->fetch ( PDO::FETCH_OBJ ) )
 	        // parcourir chaque ligne sï¿½lectionnï¿½e
 	        {
-	            
 	            $retour[]= $row->nomComm;
 	        }
 	        return $retour;
@@ -100,35 +99,74 @@ class controleur {
 	    return $newTel;
 	}
 	
-	
+	   
 	public function retourne_formulaire_login() {
 	    $retour = '
-           <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-        <div class="modal fade" id="connexionModal" role="dialog" style="color:#000;">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-        				<h3 class="modal-title"><span class="fas fa-lock"></span> Connexion</h3>
-        				<button type="button" class="close" data-dismiss="modal" aria-label="Close" ">
-          					<span aria-hidden="true">&times;</span>
-        				</button>
-      				</div>
-					<div class="modal-body">
-						<form role="form" id="connexion" method="post">
-							<div class="form-group">
-								<label for="login"><span class="fas fa-user"></span> Login</label>
-								<input type="text" class="form-control" id="login" name="login" placeholder="Login">
-							</div>
-							<div class="form-group">
-								<label for="password"><span class="fas fa-eye"></span> Password</label>
-								<input type="password" class="form-control" id="password" name="password" placeholder="Password">
-							</div>
-							<button type="submit" class="btn btn-success btn-block" class="submit"><span class="fas fa-power-off"></span> Login</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>';
+    <h3>Espace connexion</h3>
+	<div class="cadre">
+	   <form role="form" id="connexion" method="post">
+			<tlp>Login : </tlp><input type="text" id="login" name="login" placeholder="Login" autocomplete="off"
+                required="required" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);"><br><esp>
+			<tlp>Password : </tlp><input type="password" id="password" name="password" placeholder="Password" autocomplete="off"
+                required="required" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);"><br><esp>
+			<button type="submit" onclick="connexion()" >Se Connecter</button>
+		</form>
+	</div>
+    <footer>*Vous devez posséder un compte crée au préalable par l\'administrateur</footer>';
+	    return $retour;
+	}
+	
+	/* Spécifique à la personne connecté */
+	public function retourne_formulaire_ajouter_association() {
+	    $retour='
+        <h3>Ajouter une Association</h3>
+        <div class="cadre">
+	    <form role="form" id="ajoutAssociation" method="post">
+			<tlp>Intitulé: </tlp><input type="text" id="intitule" placeholder="nom de l\'association" autocomplete="off"
+                required="required" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);"><err>*</err><br><esp>
+
+            <tlp>Catégorie: </tlp>
+                <select id="arrayCat" required="required">
+                    <option>-- Choisissez une catégorie</option>';
+	    $result = $this->vpdo->liste_toutes_categories();
+	    if ($result != false) {
+	        while ($row = $result->fetch ( PDO::FETCH_OBJ ) ) // parcourir chaque ligne sï¿½lectionnï¿½e
+	        {$retour = $retour . '<option value="'.$row->idCategorie.'">'.$row->nomCategorie.'</option>';}
+	    }else{$retour = $retour . '<option>erreur lors du chargement</option>';}
+	    $retour = $retour . '</select><err>*</err><esp>
+
+            <tlp>Nom: </tlp><input type="text" id="nom" placeholder="nom du président" autocomplete="off"
+                required="required" oninvalid="InvalidMsg(this);" oninput="oninput="this.value = this.value.toUpperCase()""><err>*</err><esp>
+            
+           <tlp>Préom: </tlp><input type="text" id="nom" placeholder="prénom du président" autocomplete="off"
+                required="required" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);"><err>*</err><esp>
+            
+
+            <tlp>Commune: </tlp>
+                <select id="arrayComune" required="required">
+                    <option>-- Choisissez une commune</option>';
+	    $result = $this->vpdo->liste_communes();
+	    if ($result != false) {
+	        while ($row = $result->fetch ( PDO::FETCH_OBJ ) ) // parcourir chaque ligne sï¿½lectionnï¿½e
+	           {$retour = $retour . '<option value="'.$row->idCommune.'">'.$row->nomReelComm.'</option>';}
+	    }else{$retour = $retour . '<option>erreur lors du chargement</option>';}
+	    
+	    $retour = $retour . '</select><err>*</err><esp>
+			
+            <tlp>Adresse: </tlp><input type="text" id="adresse" placeholder="numéro et nom de la rue" autocomplete="off"
+                required="required" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);"><err>*</err><esp>
+            
+            <tlp>Numéro de téléphone: </tlp><input type="tel"  pattern="[0]{1}[0-9]{9}" id="tel" placeholder="0123456789" autocomplete="off"><esp>
+            
+            <tlp>Site Internet: </tlp><input type="url"  pattern="https://.*|http://.*" id="site" placeholder="https://example.com" autocomplete="off"><esp>
+            
+            <tlp>Description: </tlp><br><textarea id="descriptif" placeholder="Descriptif de l\'association" autocomplete="off"
+                style="resize:vertical" rows="8" cols="80"></textarea><br>
+            <err>*Champ obligatoire pour l\'ajout de l\'association</err>
+			</div><esp>
+            <button type="submit" onclick="valid()" >Valider</button>
+            <button type="reset">Recommencer</button>
+		</form>';
 	    return $retour;
 	}
 }

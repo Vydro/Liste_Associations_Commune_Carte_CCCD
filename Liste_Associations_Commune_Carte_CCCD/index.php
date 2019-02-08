@@ -2,7 +2,7 @@
 session_start();
 
 include_once ('class/autoload.php');
-$site = new page_base();
+$site = connexsecurise();
 $controleur = new controleur();
 $request = strtolower($_SERVER['REQUEST_URI']);
 $params = explode('/', trim($request, '/'));
@@ -40,22 +40,36 @@ switch ($params[2]) {
             $site->titre = 'Accueil';
             $site->js = 'app.min';
             $site->left_sidebar = $controleur->retourne_carte();
-            $site->affiche();  
+            $site->affiche();
         }
-        break;
+    break;
+    
     case 'connexion' :
-        $site->titre = 'Connexion';
-        $site->js = 'jquery-3.3.1.min';
-        $site->js = 'bootstrap';
-        $site->js = 'connexion';
-        $site-> left_sidebar = $controleur->retourne_formulaire_login();
-        $site->affiche();
-        break;
+        if(!(isset($_SESSION['login']) && isset($_SESSION['type']))){
+            $site->titre = 'Connexion';
+            $site->js = 'connexion';
+            $site-> left_sidebar = $controleur->retourne_formulaire_login();
+            $site->affiche();
+        }else{echo '<script>document.location.href="accueil"; </script>';}
+    break;
+    
     case 'deconnexion' :
         $_SESSION=array();
         session_destroy();
-        echo '<script>document.location.href="index.php"; </script>';
-        break;
+        echo '<script>document.location.href="accueil"; </script>';
+    break;
+        
+        /* Spécifique à la personne connecté */
+    case 'ajoutassoc':
+        if(isset($_SESSION['login']) && isset($_SESSION['type']) && $_SESSION['type']=="1")
+        {
+             $site->titre = 'Ajouter Association';
+             $site->js = 'gestion_association';
+             $site-> left_sidebar = $controleur->retourne_formulaire_ajouter_association();
+             $site->affiche();
+        }else{echo '<script>document.location.href="accueil"; </script>';}
+    break;
+    
     default:deflt($site);
 }
 
@@ -65,4 +79,22 @@ function deflt($site){
     $site->left_sidebar = '<img src="' . $site->path . '/image/erreur-404.png" alt="Erreur de liens">';
     $site->affiche();
 }
+
+function connexsecurise() {
+    $retour;
+    if(!isset($_SESSION['login']) || !isset($_SESSION['type'])){
+        $retour = new page_base();
+    }
+    else
+    {
+        switch ($_SESSION['type'])
+        {
+            case '1':
+                $retour = new page_base_securisee_admin();
+            break;
+        }
+    }
+    return $retour;
+}
+
 ?>
