@@ -139,7 +139,7 @@ class page_base {
 	}
 	protected function affiche_menu_connexion() {
 	    
-	    if(!(isset($_SESSION['id']) && isset($_SESSION['type'])))
+	    if(!(isset($_SESSION['login']) && isset($_SESSION['type'])))
 	    {
 	        echo '
 					<ul >
@@ -178,7 +178,7 @@ class page_base {
 		<!-- Footer -->
 			<footer>
 				Site officiel de la 
-				<a class="footer" href="http://cc-chateaubriant-derval.fr/">Communauté de Commune Châteaubriant - Derval</a>
+				<a class="footerbasic" href="http://cc-chateaubriant-derval.fr/">Communauté de Commune Châteaubriant - Derval</a>
                 &copy; 2019
 				</p>
             </footer>';
