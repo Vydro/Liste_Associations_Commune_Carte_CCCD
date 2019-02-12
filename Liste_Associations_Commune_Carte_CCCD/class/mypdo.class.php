@@ -87,13 +87,37 @@ class mypdo extends PDO{
     public function liste_communes()
     {
         $requete='
-            select nomComm
-            from commune';
+            select *
+            from commune
+            order by nomComm';
+        $result=$this->connexion ->query($requete);
+        if ($result){return ($result);}
+    }
+    
+    public function liste_toutes_categories()
+    {
+        $requete='
+            select *
+            from categorie
+            order by nomCategorie';
+        $result=$this->connexion ->query($requete);
+        if ($result){return ($result);}
+    }
+    
+    public function connect($tab)
+    {
+        $requete='select user.*, type.* 
+            from user, type 
+            where type.idType = user.idType
+            and login="'.$tab['login'].'"
+            and password=PASSWORD("'.$tab['password'].'")';
+        
         $result=$this->connexion ->query($requete);
         if ($result)
         {
-            return ($result);
+            if ($result-> rowCount()==1){return ($result);}
         }
+        return null;
     }
 }
 ?>
