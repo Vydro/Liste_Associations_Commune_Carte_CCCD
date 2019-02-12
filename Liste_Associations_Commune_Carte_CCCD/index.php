@@ -81,7 +81,7 @@ function deflt($site){
 }
 
 function connexsecurise() {
-    $retour;
+    $retour ='';
     if(!isset($_SESSION['login']) || !isset($_SESSION['type'])){
         $retour = new page_base();
     }
