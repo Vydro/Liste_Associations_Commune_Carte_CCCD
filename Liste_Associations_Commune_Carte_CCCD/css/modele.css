@@ -121,6 +121,14 @@ a.button:before{
 
 .hracc{height: 2px;}
 
+
+/* Cadre form */
+.cadre{
+	border: 0.7px solid grey;
+	position: relative;
+	padding:10px;
+}
+
 /* Custom Select */
 .slt {
   position: relative;
@@ -229,17 +237,16 @@ section p, section li {
 }
 
 /* Pied de page */
-footer {
+footer{
 	margin: 0;
 	padding: 15px 20px 10px 0;
 	font-size: .85em;
 }
 
-a.footer
+a.footerbasic
 {
 	text-decoration: underline;
 }
-
 /* Mention de copyright */
 #copyright {
 	margin: 8px 0 0 0;
