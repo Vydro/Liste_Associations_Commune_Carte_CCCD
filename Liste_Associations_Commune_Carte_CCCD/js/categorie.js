@@ -39,6 +39,6 @@ $('#divAssoc').empty();
 				else if (textStatus === "abort"){alert("Ajax request aborted.");}
 				else{alert("Uncaught Error.n" + jqXHR.responseText);}
 			}
-   				});
+   		});
 
 }
