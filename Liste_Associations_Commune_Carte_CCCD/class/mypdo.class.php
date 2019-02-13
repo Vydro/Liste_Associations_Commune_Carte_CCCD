@@ -77,7 +77,7 @@ class mypdo extends PDO{
         and cm.nomComm ="'.$nomCommune.'"
         group by nomCategorie
         order by nomCategorie';
-        $result=$this->connexion ->query($requete);
+        $result=$this->connexion->query($requete);
         if ($result)
         {
             return ($result);
@@ -119,5 +119,45 @@ class mypdo extends PDO{
         }
         return null;
     }
+    
+    public function president_exist($nom, $prenom, $civilite)
+    {
+        $requete='select idPresident from president 
+            where nom like "'.$nom.'" and prenom like "'.$prenom.'" and civilite="'.$civilite.'"';
+        
+        $result=$this->connexion->query($requete);
+        if ($result)
+        {
+            if ($result->rowCount()==1){return ($result);}
+        }
+        return null;
+    }
+    
+    public function president_ajout($nom, $prenom, $civilite)
+    {
+        $requete="INSERT INTO `president` (`idPresident`, `nom`, `prenom`, `civilite`)
+                VALUES (NULL, '$nom', '$prenom', '$civilite')";
+        
+        $result=$this->connexion->query($requete);
+        if ($result)
+        {
+          return true;
+        }
+        return null;
+    }
+    
+    public function ajout_assoc($param)
+    {
+        $requete="INSERT INTO `association` (`idAssociation`, `intitule`, `adresse`, `tel`, `siteInternet`, `descriptif`, `idCategorie`, `idCommune`, `idPresident`)
+                VALUES (NULL, '$param[1]', '$param[2]', '$param[3]', '$param[4]', '$param[5]', '$param[6]', '$param[7]', '$param[8]')";
+        
+        $result=$this->connexion ->query($requete);
+        if ($result)
+        {
+            return true;
+        }
+        return null;
+    }
+   
 }
 ?>

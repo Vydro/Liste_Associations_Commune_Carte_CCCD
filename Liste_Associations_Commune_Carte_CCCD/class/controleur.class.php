@@ -123,50 +123,54 @@ class controleur {
         <div class="cadre">
 	    <form role="form" id="ajoutAssociation" method="post">
 			<tlp>Intitulé: </tlp><input type="text" id="intitule" placeholder="nom de l\'association" autocomplete="off"
-                required="required" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);"><err>*</err><br><esp>
+                required="required" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);"><err> *</err><br><esp>
 
-            <tlp>Catégorie: </tlp>
+            <tlp>Catégorie: </tlp>  
                 <select id="arrayCat" required="required">
-                    <option>-- Choisissez une catégorie</option>';
+                    <option value="">-- Choisissez une catégorie</option>';
 	    $result = $this->vpdo->liste_toutes_categories();
 	    if ($result != false) {
 	        while ($row = $result->fetch ( PDO::FETCH_OBJ ) ) // parcourir chaque ligne sï¿½lectionnï¿½e
 	        {$retour = $retour . '<option value="'.$row->idCategorie.'">'.$row->nomCategorie.'</option>';}
 	    }else{$retour = $retour . '<option>erreur lors du chargement</option>';}
-	    $retour = $retour . '</select><err>*</err><esp>
+	    $retour = $retour . '</select><err> *</err><esp>
 
             <tlp>Nom: </tlp><input type="text" id="nom" placeholder="nom du président" autocomplete="off"
-                required="required" oninvalid="InvalidMsg(this);" oninput="oninput="this.value = this.value.toUpperCase()""><err>*</err><esp>
+                required="required" oninvalid="InvalidMsg(this);">
+                <err> *</err><esp>
             
-           <tlp>Préom: </tlp><input type="text" id="nom" placeholder="prénom du président" autocomplete="off"
-                required="required" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);"><err>*</err><esp>
+           <tlp>Prénom: </tlp><input type="text" id="prenom" placeholder="prénom du président" autocomplete="off"
+                required="required" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);"><err> *</err><esp>
             
+           <tlp>Civilité: </tlp>
+            <input type="radio" name="civilite" value="Madame" checked>Madame
+            <input type="radio" name="civilite" value="Monsieur">Monsieur <err> *</err><esp>
 
             <tlp>Commune: </tlp>
-                <select id="arrayComune" required="required">
-                    <option>-- Choisissez une commune</option>';
+                <select id="arrayComm" required="required">
+                    <option value="">-- Choisissez une commune</option>';
 	    $result = $this->vpdo->liste_communes();
 	    if ($result != false) {
 	        while ($row = $result->fetch ( PDO::FETCH_OBJ ) ) // parcourir chaque ligne sï¿½lectionnï¿½e
 	           {$retour = $retour . '<option value="'.$row->idCommune.'">'.$row->nomReelComm.'</option>';}
 	    }else{$retour = $retour . '<option>erreur lors du chargement</option>';}
 	    
-	    $retour = $retour . '</select><err>*</err><esp>
+	    $retour = $retour . '</select><err> *</err><esp>
 			
             <tlp>Adresse: </tlp><input type="text" id="adresse" placeholder="numéro et nom de la rue" autocomplete="off"
-                required="required" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);"><err>*</err><esp>
+                required="required" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);"><err> *</err><esp>
             
             <tlp>Numéro de téléphone: </tlp><input type="tel"  pattern="[0]{1}[0-9]{9}" id="tel" placeholder="0123456789" autocomplete="off"><esp>
             
-            <tlp>Site Internet: </tlp><input type="url"  pattern="https://.*|http://.*" id="site" placeholder="https://example.com" autocomplete="off"><esp>
+            <tlp>Site Internet: </tlp><input type="url"  pattern="https://.*|http://.*" id="url" placeholder="https://example.com" autocomplete="off"><esp>
             
             <tlp>Description: </tlp><br><textarea id="descriptif" placeholder="Descriptif de l\'association" autocomplete="off"
-                style="resize:vertical" rows="8" cols="80"></textarea><br>
-            <err>*Champ obligatoire pour l\'ajout de l\'association</err>
+                style="resize:none" rows="8" cols="80"></textarea><br>
+            <err>*Champs obligatoires pour l\'ajout d\'une association</err>
 			</div><esp>
-            <button type="submit" onclick="valid()" >Valider</button>
+            <button type="submit" >Valider</button>
             <button type="reset">Recommencer</button>
-		</form>';
+		</form>  ';
 	    return $retour;
 	}
 }
