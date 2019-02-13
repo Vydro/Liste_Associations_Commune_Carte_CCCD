@@ -189,7 +189,6 @@ class page_base {
 
 	public function affiche() {
 		
-		
 		?>
 			<!DOCTYPE html>
 			<html lang='fr'>
