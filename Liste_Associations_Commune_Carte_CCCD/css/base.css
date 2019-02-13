@@ -1,5 +1,3 @@
-
-
 /* --- STYLES DE BASE POUR LE TEXTE ET LES PRINCIPAUX ÉLÉMENTS --- */
 
 /* Page */
@@ -20,7 +18,7 @@ body {
 h1, h2, h3{
 	margin: 1em 0 .5em 0; 
 }
-h1, h2, h3{
+h1, h2, h3, at, atstrong, atcivil, tlp{
 	font-family: "HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-weight: normal; 
 }
@@ -32,7 +30,7 @@ h3 {
 	font-size: 2em;
 	color: #008BD2;
 }
-/* accordion */
+/* assoc */
 
 err{
 	margin: 1em 0 .5em 0;
@@ -40,11 +38,6 @@ err{
 	font-weight: normal;
 	font-size: 1em;
 	color: red;
-}
-at, atstrong, atcivil{
-	font-family: "HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-weight: normal;
-	color: black;
 }
 
 at{
@@ -54,9 +47,21 @@ at{
 atstrong{
 	font-size: 1.8em;
 	font-weight: bold;
+	color: black;
 }
 
-atcivil{font-size: 1.5em;}
+atcivil{
+	font-size: 1.5em;
+	color: black;
+}
+
+	/*connexion*/
+
+tlp
+{
+	font-size: 1.2em;
+	color :#3a3a3a;
+}
 
 /* Listes */
 ul, ol {
