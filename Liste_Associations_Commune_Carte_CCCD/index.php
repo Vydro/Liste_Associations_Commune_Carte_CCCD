@@ -15,7 +15,10 @@ switch ($params[2]) {
         if (isset($params[3])) {
             switch ($params[3]) {
                 case 'commune':
-                    if (isset($params[4]) && in_array($params[4], $controleur->array_commune($params[4]))) {
+                    if (isset($params[4]) && in_array($params[4], $controleur->array_commune($params[4]))) 
+                    {
+                        if(isset($_SESSION['login']) && isset($_SESSION['type']) && $_SESSION['type']=="1")
+                        {$site->js = 'gestion_association';}
                         if (isset($params[5]) && $controleur->infos_assoc(urldecode($params[5])) != '') {
                             $site->titre = urldecode($params[5]);
                             $site->left_sidebar = $controleur->infos_assoc(urldecode($params[5]));
@@ -60,19 +63,18 @@ switch ($params[2]) {
     break;
         
         /* Spécifique à la personne connecté */
-    case 'ajoutassoc':
+    case 'formassoc':
         if(isset($_SESSION['login']) && isset($_SESSION['type']) && $_SESSION['type']=="1")
         {
              $site->titre = 'Ajouter Association';
              $site->js = 'gestion_association';
-             $site-> left_sidebar = $controleur->retourne_formulaire_ajouter_association();
+             $site-> left_sidebar = $controleur->retourne_formulaire_association();
              $site->affiche();
         }else{echo '<script>document.location.href="accueil"; </script>';}
     break;
     
     default:deflt($site);
 }
-
 
 function deflt($site){
     $site->titre = 'Accueil';

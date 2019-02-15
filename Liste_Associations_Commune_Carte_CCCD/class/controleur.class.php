@@ -52,7 +52,10 @@ class controleur {
 	
 	public function afficher_associations()
 	{
-	    return'<div id="divAssoc" style="display:none">
+	    $plus='';
+	    if(isset($_SESSION['login']) && isset($_SESSION['type']) && $_SESSION['type']=="1")
+	       {$plus='<input id="sessType" type="hidden" value="1">';}
+	    return $plus .'<div id="divAssoc" style="display:none">
             </div><a class="button blue" href="'.$this->path.'/accueil/">retour à la carte</a><esp>';
 	}
 	
@@ -64,12 +67,15 @@ class controleur {
 	        if (! isset($row->nomCategorie)){return '';}
 	        $president = "President";
 	            if($row->civilite == "Madame"){$president = $president."e";}
-	        return '<h3>Association '.$row->nomCategorie.' - '. $row->intitule.'</h3>
+	            
+	            $affichage = '<h3>Association '.$row->nomCategorie.' - '. $row->intitule.'</h3>
                 <a class="button blue" href="'.$this->path.'/accueil/commune/'.$row->nomComm.'">retour à la liste des associations</a><esp>
                 <atcivil>'.$president.' '.$row->civilite.' '.$row->nom.' '.$row->prenom.'</atcivil><br>
-                <at>'.$row->adresse.'<br>'.$row->cp.' '.$row->nomReelComm.'<esp> &emsp; &emsp;'.$row->descriptif.'<esp>
-                Tel. '.$this->set_tel($row->tel).'</at>
-                <a class="b" href="'.$row->siteInternet.'" target = "_blank">Site officiel &#8594;</a>';
+	            <at>'.$row->adresse.'<br>'.$row->cp.' '.$row->nomReelComm;
+	            if($row->descriptif != ' '){$affichage = $affichage . '<esp> &emsp; &emsp;'.$row->descriptif.'<esp>';}
+	            if($row->tel != '  '){ $affichage = $affichage . 'Tel. '.$this->set_tel($row->tel).'</at>';}
+	            if($row->siteInternet != ' '){ $affichage = $affichage . '<a class="b" href="'.$row->siteInternet.'" target = "_blank">Site officiel &#8594;</a>';}
+	            return $affichage;
 	    }  
 	}
 
@@ -99,7 +105,6 @@ class controleur {
 	    return $newTel;
 	}
 	
-	   
 	public function retourne_formulaire_login() {
 	    $retour = '
     <h3>Espace connexion</h3>
@@ -117,7 +122,7 @@ class controleur {
 	}
 	
 	/* Spécifique à la personne connecté */
-	public function retourne_formulaire_ajouter_association() {
+	public function retourne_formulaire_association() {
 	    $retour='
         <h3>Ajouter une Association</h3>
         <div class="cadre">

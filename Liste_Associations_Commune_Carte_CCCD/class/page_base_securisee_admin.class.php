@@ -27,7 +27,7 @@ class page_base_securisee_admin extends page_base {
 		parent::affiche_menu();
         echo '
 		<ul>
-            <li><a href="'.$this->path.'/ajoutAssoc">Ajouter une association</a></li>
+            <li><a href="'.$this->path.'/formAssoc">Ajouter une association</a></li>
 		</ul>';
 	}
 }

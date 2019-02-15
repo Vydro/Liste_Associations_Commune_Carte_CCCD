@@ -57,6 +57,63 @@ $(document).ready(function() {
 	});
 });
 
+
+/* MODIFIER UNE ASSOCIATION */
+function updateAssoc(idAssoc) 
+{
+}
+
+
+
+/* SUPPRIMER UNE ASSOCIATION */
+function deleteAssoc(idAssoc) 
+{
+	var myWindow = confirm("Êtes vous sûre de supprimer cette association ? (le président(e) de celle-ci ne le sera pas)");
+	if(myWindow)			
+	{
+		$.ajax({
+   			type: 'POST',
+   			url: '../../ajax/supprimer_association.php',
+   			datatype: 'json',
+        	encode: true,
+        	data: 'id='+idAssoc+'',
+        	success: function(retour){
+        			retour = JSON.parse(retour);
+        			switch(retour['erreur'])
+        			{
+        				case 'aucune':
+        					alert('La suppresion c\'est bien déroulée');
+        					break;
+        					
+        				case 'requete':
+        					alert('ERREUR : Un problème est survenue lors de l\'exécution de la requête');
+        					break;
+        					
+        				case 'post':
+        					alert('ERREUR : L\'identifiant n\'a pas pu être récupéré');
+        					break;
+
+        				case 'connexion':
+        					alert('ERREUR : Vous n\'êtes pas connecté ou ne disposez pas des droits pour cette manipulation');
+        					break;
+        			}
+        			$('#categorie').trigger('change');
+   			},
+   			error: function(jqXHR, textStatus)
+   			{
+			//traitement des erreurs ajax
+     			if (jqXHR.status === 0){alert("Not connect.n Verify Network.");}
+    			else if (jqXHR.status == 404){alert("Requested page not found. [404]");}
+				else if (jqXHR.status == 500){alert("Internal Server Error [500].");}
+				else if (textStatus === "parsererror"){alert("Requested JSON parse failed.");}
+				else if (textStatus === "timeout"){alert("Time out error.");}
+				else if (textStatus === "abort"){alert("Ajax request aborted.");}
+				else{alert("Uncaught Error.n" + jqXHR.responseText);}
+			}
+   		});
+	}else{return false;}
+	
+}
 /*fonctions diverses*/
 
 function InvalidMsg(textbox) {

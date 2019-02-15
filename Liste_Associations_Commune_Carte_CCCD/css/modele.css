@@ -84,7 +84,7 @@ margin: 0 10px 10px 10px;
 
 }
 /* Contenu principal */
-	/* bouton retour */
+	/* bouton */
 
 a.button {
     display: inline-block;
@@ -110,6 +110,23 @@ a.button:before{
 	margin-right: 10px;
 }
 	
+button.delete
+{
+	color: red;
+}
+button.delete:before
+{
+	content: "\1F6AB";
+}
+button.update
+{
+	color: green;
+}
+button.update:before
+{
+	content: "\1F503";
+}
+
 	/* class hr */
 
 .hr, .hracc{

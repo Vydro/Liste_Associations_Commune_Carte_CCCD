@@ -34,7 +34,7 @@ class mypdo extends PDO{
     public function liste_assoc($nomCommune, $idCategorie)
     {
         $requete='
-            select intitule, nomCategorie, civilite, nom, adresse, cp
+            select idAssociation, intitule, nomCategorie, civilite, nom, adresse, cp
             from association a, categorie ct, commune cm, president p
             where a.idCategorie=ct.idCategorie
             and a.idCommune=cm.idCommune
@@ -107,7 +107,7 @@ class mypdo extends PDO{
     public function connect($tab)
     {
         $requete='select user.*, type.* 
-            from user, type 
+            from user, type
             where type.idType = user.idType
             and login="'.$tab['login'].'"
             and password=PASSWORD("'.$tab['password'].'")';
@@ -123,7 +123,7 @@ class mypdo extends PDO{
     public function president_exist($nom, $prenom, $civilite)
     {
         $requete='select idPresident from president 
-            where nom like "'.$nom.'" and prenom like "'.$prenom.'" and civilite="'.$civilite.'"';
+            where nom = "'.$nom.'" and prenom = "'.$prenom.'" and civilite="'.$civilite.'"';
         
         $result=$this->connexion->query($requete);
         if ($result)
@@ -158,6 +158,17 @@ class mypdo extends PDO{
         }
         return null;
     }
-   
+    
+    public function supp_assoc($id)
+    {
+        $requete="DELETE from `association` WHERE idAssociation=".$id;
+        
+        $result=$this->connexion ->query($requete);
+        if ($result)
+        {
+            return true;
+        }
+        return null;
+    } 
 }
 ?>

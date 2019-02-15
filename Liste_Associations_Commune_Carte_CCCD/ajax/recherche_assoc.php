@@ -10,6 +10,7 @@ if(isset($_POST['idCat']) && isset($_POST['commune']) )
     if(isset($result)){
         while ( $row = $result->fetch ( PDO::FETCH_OBJ ))
 		{
+		    $data['id'][] = ($row->idAssociation);
 		    $data['intitule'][] = ($row->intitule);
 		    $data["nomCategorie"][] = ($row->nomCategorie);
 		    $data["civilite"][] = ($row->civilite);

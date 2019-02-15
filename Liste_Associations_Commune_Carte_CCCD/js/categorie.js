@@ -1,13 +1,17 @@
-/* permet d'afficher toute les associations lorsque l'on arrive sur la page*/
+/* permet d'afficher toute les associations lorsque l'on arrive sur la page */
+
 /*$(function () {
     $('#categorie').trigger('change');
 });*/
 
-/* appel AJAX pour afficher les assoc par rapport à la commune / categorie*/
+
+/* appel AJAX pour afficher les assoc par rapport à la commune / categorie */
 function js_change_cat (){
 	document.getElementById('divAssoc').style.display = "block";
 var myselect = document.getElementById("categorie");
 var commune = document.location.href.slice((document.location.href.length - document.location.href.lastIndexOf( "/" ) - 1)*-1);
+if(document.getElementById('sessType') != null && document.getElementById('sessType').value == 1){
+	var adm = true;}else{var adm = false;}
 $('#divAssoc').empty();
 	$.ajax({
    			type: 'POST',
@@ -24,7 +28,9 @@ $('#divAssoc').empty();
        					'<atcivil>Président(e) '+retour['civilite'][i]+' '+retour['nom'][i]+'</atcivil><br>'+
        					'<at>'+retour['adresse'][i]+'</at><br>'+
        					'<a class="b" href="'+document.location.href+'/'+encodeURIComponent(retour['intitule'][i].toString().toLowerCase())+'">Plus d\'infos &#8594;</a>'+
-        				'<esp><hr></p>';
+       					'</p>';
+       				if(adm){document.getElementById("divAssoc").innerHTML += ' <button id="buttonDelAssoc" class="delete" onclick="deleteAssoc('+retour['id'][i]+')"> Supprimer</button><esp><hr>';}
+       				else{document.getElementById("divAssoc").innerHTML +='<esp><hr>';}
         			i++;
         		};
    			},
@@ -40,5 +46,4 @@ $('#divAssoc').empty();
 				else{alert("Uncaught Error.n" + jqXHR.responseText);}
 			}
    		});
-
 }
